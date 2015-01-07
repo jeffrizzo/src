@@ -132,12 +132,20 @@ sysctl_basenode_init(void)
 		       CTL_SECURITY, CTL_EOL);
 }
 
+/* writeability stuff for osrelease and osrevision */
+#define RIZMAXLENGTH 32
+static char osrelease_rw[RIZMAXLENGTH];
+static int osrevision_rw = __NetBSD_Version__;
+
 /*
  * now add some nodes which both rump kernel and standard
  * NetBSD both need, as rump cannot use sys/kern/init_sysctl.c
  */
+
 SYSCTL_SETUP(sysctl_kernbase_setup, "sysctl kern subtree base setup")
 {
+
+	strlcpy(osrelease_rw, osrelease, RIZMAXLENGTH);
 
 	sysctl_createv(clog, 0, NULL, NULL,
 		       CTLFLAG_PERMANENT,
@@ -146,16 +154,16 @@ SYSCTL_SETUP(sysctl_kernbase_setup, "sysctl kern subtree base setup")
 		       NULL, 0, __UNCONST(&ostype), 0,
 		       CTL_KERN, KERN_OSTYPE, CTL_EOL);
 	sysctl_createv(clog, 0, NULL, NULL,
-		       CTLFLAG_PERMANENT,
+		       CTLFLAG_PERMANENT|CTLFLAG_READWRITE,
 		       CTLTYPE_STRING, "osrelease",
-		       SYSCTL_DESCR("Operating system release"),
-		       NULL, 0, __UNCONST(&osrelease), 0,
+		       SYSCTL_DESCR("Operating system release (writable)"),
+		       NULL, 0, osrelease_rw, 0,
 		       CTL_KERN, KERN_OSRELEASE, CTL_EOL);
 	sysctl_createv(clog, 0, NULL, NULL,
-		       CTLFLAG_PERMANENT|CTLFLAG_IMMEDIATE,
+		       CTLFLAG_PERMANENT|CTLFLAG_IMMEDIATE|CTLFLAG_READWRITE,
 		       CTLTYPE_INT, "osrevision",
-		       SYSCTL_DESCR("Operating system revision"),
-		       NULL, __NetBSD_Version__, NULL, 0,
+		       SYSCTL_DESCR("Operating system revision (writable)"),
+		       NULL, osrevision_rw, NULL, 0,
 		       CTL_KERN, KERN_OSREV, CTL_EOL);
 	sysctl_createv(clog, 0, NULL, NULL,
 		       CTLFLAG_PERMANENT,
