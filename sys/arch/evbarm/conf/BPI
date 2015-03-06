@@ -42,7 +42,7 @@ file-system	NFS		# Network file system
 file-system	MSDOSFS		# MS-DOS file system
 #file-system	FDESC		# /dev/fd
 file-system	KERNFS		# /kern
-#file-system	NULLFS		# loopback file system
+file-system	NULLFS		# loopback file system
 file-system	PROCFS		# /proc
 #file-system	PUFFS		# Userspace file systems (e.g. ntfs-3g & sshfs)
 #file-system	UMAPFS		# NULLFS + uid and gid remapping
