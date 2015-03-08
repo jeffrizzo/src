@@ -58,6 +58,14 @@
 ./@MODULEDIR@/dm/dm.kmod			base-kernel-modules	lvm,kmod
 ./@MODULEDIR@/dtrace				base-kernel-modules	kmod,dtrace
 ./@MODULEDIR@/dtrace/dtrace.kmod		base-kernel-modules	kmod,dtrace
+./@MODULEDIR@/dtrace_fbt				base-kernel-modules	kmod,dtrace
+./@MODULEDIR@/dtrace_fbt/dtrace_fbt.kmod		base-kernel-modules	kmod,dtrace
+./@MODULEDIR@/dtrace_lockstat				base-kernel-modules	kmod,dtrace
+./@MODULEDIR@/dtrace_lockstat/dtrace_lockstat.kmod	base-kernel-modules	kmod,dtrace
+./@MODULEDIR@/dtrace_profile				base-kernel-modules	kmod,dtrace
+./@MODULEDIR@/dtrace_profile/dtrace_profile.kmod	base-kernel-modules	kmod,dtrace
+./@MODULEDIR@/dtrace_sdt				base-kernel-modules	kmod,dtrace
+./@MODULEDIR@/dtrace_sdt/dtrace_sdt.kmod		base-kernel-modules	kmod,dtrace
 ./@MODULEDIR@/dtv				base-kernel-modules	kmod
 ./@MODULEDIR@/dtv/dtv.kmod			base-kernel-modules	kmod
 ./@MODULEDIR@/dtv_math				base-kernel-modules	kmod
