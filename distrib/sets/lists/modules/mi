@@ -66,6 +66,10 @@
 ./@MODULEDIR@/dtrace_profile/dtrace_profile.kmod	base-kernel-modules	kmod,dtrace
 ./@MODULEDIR@/dtrace_sdt				base-kernel-modules	kmod,dtrace
 ./@MODULEDIR@/dtrace_sdt/dtrace_sdt.kmod		base-kernel-modules	kmod,dtrace
+./@MODULEDIR@/dtrace_syscall				base-kernel-modules	kmod,dtrace
+./@MODULEDIR@/dtrace_syscall/dtrace_syscall.kmod	base-kernel-modules	kmod,dtrace
+./@MODULEDIR@/dtrace_syscall_linux			base-kernel-modules	kmod,dtrace
+./@MODULEDIR@/dtrace_syscall_linux/dtrace_syscall_linux.kmod	base-kernel-modules	kmod,dtrace
 ./@MODULEDIR@/dtv				base-kernel-modules	kmod
 ./@MODULEDIR@/dtv/dtv.kmod			base-kernel-modules	kmod
 ./@MODULEDIR@/dtv_math				base-kernel-modules	kmod
