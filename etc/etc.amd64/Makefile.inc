@@ -7,6 +7,7 @@
 # to update the release documentation in distrib/notes/common/contents
 
 KERNEL_SETS=		GENERIC
+KERNEL_SETS+=		SLASH
 KERNEL_SETS+=		XEN3_DOM0 XEN3_DOMU
 KERNEL_SETS+=		DRMKMS
 # KERNEL_SETS+=		GENERIC_USERMODE
