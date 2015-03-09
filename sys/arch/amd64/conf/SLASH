@@ -1,0 +1,9 @@
+#
+# Kernel with dtrace and debugging enabled.
+
+include	"arch/amd64/conf/GENERIC"
+
+options 	KDTRACE_HOOKS
+options		DDB_ONPANIC=1
+makeoptions	DEBUG="-g"
+pseudo-device	dm
