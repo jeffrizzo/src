@@ -1,4 +1,4 @@
-# $NetBSD: CHANGES-7.0,v 1.1.2.228 2015/03/15 23:04:54 snj Exp $
+# $NetBSD: CHANGES-7.0,v 1.1.2.235 2015/03/21 17:56:02 snj Exp $
 
 A complete list of changes from the initial NetBSD 7.0 branch on 11 Aug 2014
 until the 7.0 release:
@@ -18576,4 +18576,364 @@ tests/usr.bin/config/support/conf/Makefile.kern.inc 1.1
 	Now config(1) checks the content of $S/conf/Makefile.kern.inc.
 	Install it into config(1) test directory to fix tests.
 	[bouyer, ticket #596]
+
+sys/dev/pci/agp_i810.c				1.115-1.117
+sys/dev/pci/agp_i810var.h			1.6
+sys/external/bsd/drm2/dist/drm/i915/i915_gem.c	1.28
+sys/external/bsd/drm2/dist/drm/nouveau/core/subdev/clock/nouveau_subdev_clock_nv50.c 1.3
+sys/external/bsd/drm2/drm/drm_drv.c		1.15
+sys/external/bsd/drm2/drm/drm_gem_vm.c		1.6
+sys/external/bsd/drm2/i915drm/intel_gtt.c	1.5
+sys/external/bsd/drm2/include/drm/intel-gtt.h	1.5
+
+	Additional DRM fixes.
+	[snj, ticket #590]
+
+xsrc/external/mit/libXfont/dist/ChangeLog	up to 1.1.1.9
+xsrc/external/mit/libXfont/dist/Makefile.in	up to 1.1.1.8
+xsrc/external/mit/libXfont/dist/aclocal.m4	up to 1.1.1.9
+xsrc/external/mit/libXfont/dist/compile		up to 1.1.1.2
+xsrc/external/mit/libXfont/dist/config.guess	up to 1.1.1.7
+xsrc/external/mit/libXfont/dist/config.sub	up to 1.1.1.7
+xsrc/external/mit/libXfont/dist/configure	up to 1.1.1.9
+xsrc/external/mit/libXfont/dist/configure.ac	up to 1.1.1.9
+xsrc/external/mit/libXfont/dist/depcomp		up to 1.1.1.6
+xsrc/external/mit/libXfont/dist/doc/Makefile.in	up to 1.1.1.4
+xsrc/external/mit/libXfont/dist/install-sh	up to 1.1.1.6
+xsrc/external/mit/libXfont/dist/missing		up to 1.1.1.7
+xsrc/external/mit/libXfont/dist/src/FreeType/Makefile.in up to 1.1.1.8
+xsrc/external/mit/libXfont/dist/src/Makefile.in	up to 1.1.1.8
+xsrc/external/mit/libXfont/dist/src/bitmap/Makefile.in up to 1.1.1.8
+xsrc/external/mit/libXfont/dist/src/bitmap/bdfread.c up to 1.4
+xsrc/external/mit/libXfont/dist/src/builtins/Makefile.in up to 1.1.1.8
+xsrc/external/mit/libXfont/dist/src/fc/Makefile.in up to 1.1.1.8
+xsrc/external/mit/libXfont/dist/src/fc/fslibos.h up to 1.1.1.4
+xsrc/external/mit/libXfont/dist/src/fontfile/Makefile.in up to 1.1.1.8
+xsrc/external/mit/libXfont/dist/src/stubs/Makefile.in up to 1.1.1.8
+xsrc/external/mit/libXfont/dist/src/util/Makefile.in up to 1.1.1.8
+xsrc/external/mit/libXfont/include/config.h	1.7
+xsrc/xfree/xc/lib/font/bitmap/bdfread.c		1.5
+
+	Fix CVE-2015-1802 (bdfReadProperties: property count needs
+	range check), CVE-2015-1803 (bdfReadCharacters: bailout if a
+	char's bitmap cannot be read), and CVE-2015-1804
+	(bdfReadCharacters: ensure metrics fit into xCharInfo struct)
+	[mrg, ticket #620]
+
+etc/etc.amd64/Makefile.inc			patch
+etc/etc.i386/Makefile.inc			patch
+sys/arch/amd64/conf/ALL				patch
+sys/arch/amd64/conf/DRMKMS			delete
+sys/arch/amd64/conf/GENERIC			patch
+sys/arch/amd64/conf/INSTALL			patch
+sys/arch/amd64/conf/NO_DRM			delete
+sys/arch/i386/conf/ALL				patch
+sys/arch/i386/conf/DRMKMS			delete
+sys/arch/i386/conf/GENERIC			patch
+sys/arch/i386/conf/INSTALL			patch
+sys/arch/i386/conf/NO_DRM			delete
+usr.sbin/sysinst/arch/amd64/md.h		patch
+usr.sbin/sysinst/arch/i386/md.h			patch
+usr.sbin/sysinst/arch/i386/msg.md.de		patch
+usr.sbin/sysinst/arch/i386/msg.md.en		patch
+usr.sbin/sysinst/arch/i386/msg.md.es		patch
+usr.sbin/sysinst/arch/i386/msg.md.fr		patch
+usr.sbin/sysinst/arch/i386/msg.md.pl		patch
+
+
+	- Enable intel and radeon DRM/KMS drivers in GENERIC
+	- Disable all of the old DRM drivers in GENERIC
+	- Remove the separate DRMKMS kernel
+	[christos, ticket #542]
+
+sys/dev/pci/if_wm.c				1.311-1.313
+sys/dev/pci/if_wmreg.h				1.66
+
+	- Fix a bug that sc_mediatype is evaluated incorrectly.
+	- Initialize some hardware bits for 8257[1234], 82583, 80003,
+	  ICH* and PCH*.
+	- Fix a bug that the first access to NVM is failed on 8254[17]
+	  which use SPI EEPROM. Observed on Dell PowerEdge [12]850.
+	[msaitoh, ticket #614]
+
+sys/arch/xen/include/evtchn.h			1.23
+sys/arch/xen/xen/evtchn.c			1.71
+sys/arch/xen/xen/pci_intr_machdep.c		1.17
+
+	Properly implemement pci_intr_disestablish(9), so that interrupt
+	handlers stop being called when the device has been detached.
+	PR port-xen/47720.
+	[bouyer, ticket #618]
+
+lib/libc/gen/arc4random.3			1.10-1.19
+lib/libc/gen/arc4random.c			1.26-1.28
+
+	arc4random(3): use ChaCha20 instead of RC4.  Rewrite man page.
+	[riastradh, ticket #597]
+
+share/man/man9/pci_intr.9			1.18
+
+	Fix type of pc argument in pci_intr(9) man page.
+	[riastradh, ticket #599]
+
+common/lib/libc/arch/alpha/atomic/membar_ops.S	1.7
+lib/libc/atomic/membar_ops.3			1.4
+sys/arch/alpha/include/types.h			1.50
+sys/sys/atomic.h				1.13
+
+	Add membar_datadep_consumer.  Same as membar_consumer,
+	but limited to loads of addresses dependent on prior loads, or
+	"data-dependent" loads.
+	[riastradh, ticket #600]
+
+share/man/man2/siginfo.2			1.7
+
+	Fix some typos and make style more consistent.
+	[riastradh, ticket #601]
+
+lib/libc/stdio/fopen.3				1.30
+
+	Use Pq to avoid space before O_EXCL.
+	[riastradh, ticket #602]
+
+share/man/man4/rnd.4				1.21
+
+	Rewrite /dev/random man page.
+	[riastradh, ticket #603]
+
+usr.bin/ktrace/ktrace.1				1.43
+
+	Omit no longer existing l, m from default trace points.
+	[riastradh, ticket #604]
+
+share/man/man9/cprng.9				1.10
+
+	Clarify advice about when to use what parts of cprng(9).
+	Add security model to specify the difference between
+	cprng_strong and cprng_fast.  Fix code references.
+	cprng_fast now uses ChaCha8, not RC4.
+	[riastradh, ticket #605]
+
+share/mk/bsd.README				1.339
+
+	Fix the description of MKX11RADEONKMS.  PR 49753.
+	[mrg, ticket #615]
+
+games/tetris/tetris.6				1.15
+games/tetris/tetris.c				1.28
+
+	Add a 'down' key to tetris, defaulting to 'n'.  It moves the
+	block down a line, if it fits.
+	[mrg, ticket #622]
+
+xsrc/external/mit/xorg-server/dist/hw/xfree86/os-support/bsd/bsd_init.c 1.7
+
+	Remove \n\n that confuses the Xorg log file.
+	[mrg, ticket #623]
+
+usr.bin/vndcompress/Makefile			1.14
+usr.bin/vndcompress/vndcompress.c		1.25
+
+	Fix vndcompress restart failure fallback when input is a pipe.
+	[riastradh, ticket #609]
+
+lib/libc/string/consttime_memequal.3		1.3, 1.4
+
+	Commit to returning 1, not any nonzero value.
+	[riastradh, ticket #610]
+
+doc/BUILDING.mdoc				1.111
+
+	Use `It Sy', not just `It', for live-image, to match other targets.
+	[riastradh, ticket #611]
+
+sys/arch/amd64/include/pmap.h			1.35
+
+	Bump amd64 module map size to 64 MB.
+	[riastradh, ticket #612]
+
+share/man/man9/uvm_km.9				1.4
+
+	Clarify uvm_km_alloc is contiguous and zero result means fail.
+	[riastradh, ticket #613]
+
+sys/arch/arm/include/fenv.h			1.3
+
+	#include <sys/cdefs.h> for __BEGIN_DECLS and __END_DECLS.
+	[joerg, ticket #616]
+
+share/man/man9/pserialize.9			1.4-1.8
+
+	Expand and clarify the pserialize(9) man page.
+	[riastradh, ticket #607]
+
+crypto/external/bsd/openssl/dist/crypto/asn1/a_type.c 1.2
+crypto/external/bsd/openssl/dist/crypto/asn1/tasn_dec.c 1.2
+crypto/external/bsd/openssl/dist/crypto/pkcs7/pk7_doit.c 1.2
+crypto/external/bsd/openssl/dist/crypto/pkcs7/pk7_lib.c 1.2
+crypto/external/bsd/openssl/dist/doc/crypto/d2i_X509.pod 1.2
+crypto/external/bsd/openssl/dist/ssl/s2_lib.c	1.3
+crypto/external/bsd/openssl/dist/ssl/s2_srvr.c	1.2
+
+	Address OpenSSL Security Advisory [19 Mar 2015]:
+	RSA silently downgrades to EXPORT_RSA [Client] (CVE-2015-0204)
+	Segmentation fault in ASN1_TYPE_cmp (CVE-2015-0286)
+	ASN.1 structure reuse memory corruption (CVE-2015-0287)
+	PKCS7 NULL pointer dereferences (CVE-2015-0289)
+	Base64 decode (CVE-2015-0292)
+	DoS via reachable assert in SSLv2 servers (CVE-2015-0293)
+	Use After Free following d2i_ECPrivatekey error (CVE-2015-0209)
+	X509_to_X509_REQ NULL pointer deref (CVE-2015-0288)
+	[spz, ticket #625]
+
+sys/dev/wscons/wsconsio.h			1.112 via patch
+sys/dev/wsfb/genfb.c				1.57
+
+	add WSDISPLAY_TYPE_MESON
+	support 24bpp framebuffers
+	[jmcneill, ticket #631]
+
+sys/arch/arm/amlogic/amlogic_board.c		up to 1.9
+sys/arch/arm/amlogic/amlogic_canvasreg.h	1.1
+sys/arch/arm/amlogic/amlogic_com.c		up to 1.4
+sys/arch/arm/amlogic/amlogic_comreg.h		up to 1.3
+sys/arch/arm/amlogic/amlogic_comvar.h: 		1.1
+sys/arch/arm/amlogic/amlogic_cpufreq.c:		up to 1.2
+sys/arch/arm/amlogic/amlogic_crureg.h		up to 1.7
+sys/arch/arm/amlogic/amlogic_dwctwo.c		up to 1.2
+sys/arch/arm/amlogic/amlogic_genfb.c		1.1
+sys/arch/arm/amlogic/amlogic_gmac.c		up to 1.2
+sys/arch/arm/amlogic/amlogic_hdmireg.h		1.1
+sys/arch/arm/amlogic/amlogic_intr.h		up to 1.5
+sys/arch/arm/amlogic/amlogic_io.c		up to 1.7
+sys/arch/arm/amlogic/amlogic_reg.h		up to 1.9
+sys/arch/arm/amlogic/amlogic_rng.c		1.1
+sys/arch/arm/amlogic/amlogic_sdhc.c		up to 1.3
+sys/arch/arm/amlogic/amlogic_sdhcreg.h		1.1
+sys/arch/arm/amlogic/amlogic_space.c		1.1
+sys/arch/arm/amlogic/amlogic_var.h		up to 1.8
+sys/arch/arm/amlogic/amlogic_vpureg.h		1.1
+sys/arch/arm/arm/bootconfig.c			1.7-1.8
+sys/arch/arm/conf/files.arm			1.129
+sys/arch/arm/cortex/pl310.c			1.16-1.17
+sys/arch/arm/cortex/a9_mpsubr.S			1.25-1.29
+sys/arch/arm/cortex/a9tmr.c			1.8-1.12
+sys/arch/arm/cortex/a9tmr_var.h			1.4
+sys/arch/arm/cortex/a9wdt.c			1.3-1.4
+sys/arch/arm/cortex/armperiph.c			1.5-1.7
+sys/arch/arm/arm/cpufunc.c			1.151
+sys/arch/arm/include/bootconfig.h		1.7
+sys/arch/arm/include/locore.h			1.19
+sys/arch/evbarm/amlogic/amlogic_machdep.c	up to 1.17
+sys/arch/evbarm/amlogic/amlogic_start.S		up to 1.2
+sys/arch/evbarm/amlogic/genassym.cf		1.1
+sys/arch/evbarm/amlogic/platform.h		1.1
+sys/arch/evbarm/conf/files.amlogic		up to 1.8
+sys/arch/evbarm/conf/std.amlogic		up to 1.2
+sys/arch/evbarm/conf/mk.amlogic			1.1
+sys/arch/evbarm/conf/ODROID-C1			up to 1.12
+sys/arch/evarm/conf/ODROID-C1_INSTALL		1.1
+
+	Add suport for ODROID-C1.
+	[jmcneill, ticket #598]
+
+sys/dev/mii/rgephy.c				1.38
+sys/dev/mii/rgephyreg.h				1.7
+
+	Add RTL8211F support.
+	[jmcneill, ticket #624]
+
+distrib/sets/lists/modules/md.amd64		1.51
+distrib/sets/lists/modules/md.evbppc.powerpc	1.5
+distrib/sets/lists/modules/md.i386		1.55
+distrib/sets/lists/modules/mi			1.71
+sys/dev/i2c/au8522.c				1.7
+sys/dev/i2c/cx24227.c				1.7
+sys/dev/i2c/dbcool.c				1.42
+sys/dev/i2c/hytp14.c				1.3
+sys/dev/i2c/i2c_exec.c				1.10
+sys/dev/i2c/lg3303.c				1.9
+sys/dev/i2c/mt2131.c				1.5
+sys/dev/i2c/nxt2k.c				1.4
+sys/dev/i2c/sdtemp.c				1.24
+sys/dev/i2c/spdmem_i2c.c			1.10
+sys/dev/i2c/tvpll.c				1.6
+sys/dev/i2c/xc3028.c				1.7
+sys/dev/i2c/xc5k.c				1.6
+sys/dev/i2c/zl10353.c				1.4
+sys/modules/Makefile				1.143
+sys/modules/i2cexec/Makefile			1.1
+
+	Create an i2cexec module (i2c_exec.c) to mirror the dependencies
+	in files.i2c and switch device drivers to depend on "i2cexec"
+	module instead.
+	[jmcneill, ticket #634]
+
+sys/arch/arm/vfp/vfp_init.c			1.43-1.46
+
+	Don't try to catch undefined VFP instructions if we own the
+	FPU.  Let them raise SIGILL.  PR 49754.
+	[martin, ticket #621]
+
+sys/arch/arm/cortex/gic.c			1.16
+
+	Remove trailing whitespace
+	[skrll, ticket #627]
+
+sys/dev/usb/TODO.usbmp				1.9
+sys/dev/usb/uatp.c				1.11
+sys/dev/usb/ucycom.c				1.42
+sys/dev/usb/uhid.c				1.93, 1.94
+sys/dev/usb/uhidev.c				1.63
+sys/dev/usb/uhidev.h				1.17
+sys/dev/usb/ukbd.c				1.130
+sys/dev/usb/uyurex.c				1.10
+
+	Properly protect uhid's sc_q member with sc_lock.  PR 49728.
+	Remove D_MPSAFE from uhid* and all uhid users, as it really
+	needs all the callers to be safe and they're not.
+	Don't take the device lock when stopping the uhidev.  That calls
+	to abort and close pipes, both of which may take an adaptive lock.
+	[mrg, ticket #626]
+
+sys/arch/sparc64/sparc64/autoconf.c		1.202
+sys/arch/sparc64/sparc64/machdep.c		1.281
+
+	Reuse results of "bootpath" and "bootargs" from openfirmware
+	instead of calling openfirmware in each sysctl CPU_BOOT*.
+	[nakayama, ticket #628]
+
+sys/dev/pckbport/synaptics.c			1.33
+
+	Fix clickpad button detection.  PR 49767.
+	[nonaka, ticket #629]
+
+sys/net/npf/npf_ctl.c				1.41
+sys/net/npf/npf_ruleset.c			1.42
+usr.sbin/npf/npfctl/npf_build.c			1.39
+usr.sbin/npf/npfctl/npf_show.c			1.18
+
+	NPF: replace the TAILQ of the dynamic rules with a linked list
+	and fix the inheriting of the active dynamic rules during the
+	reload; also, fix a bug in the insert path by putting a memory
+	barrier in the right place.
+	npfctl:
+	- Fix the filter criteria when to/from is omitted but port used.
+	- Print more user-friendly error if an NPF table has a duplicate
+	  entry.
+	[rmind, ticket #630]
+
+lib/libc/arch/arm/gen/flt_rounds.c		1.5
+lib/libc/arch/mips/gen/flt_rounds.c		1.9
+lib/libc/arch/powerpc/gen/flt_rounds.c		1.12
+lib/libc/arch/powerpc64/gen/flt_rounds.c	1.2
+lib/libc/arch/sh3/gen/flt_rounds.c		1.6
+
+	Call libc's fpgetround.
+	[joerg, ticket #632]
+
+sys/arch/arm/include/mcontext.h			1.17
+
+	Ensure _lwp_setcontext gets consistent language binding.
+	[joerg, ticket #633]
 
