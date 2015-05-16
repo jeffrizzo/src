@@ -2176,7 +2176,7 @@ filt_sordetach(struct knote *kn)
 	so = ((file_t *)kn->kn_obj)->f_data;
 	if (so == NULL) {
 		printf("%s: NULL socket for %p\n", __func__, kn->kn_obj);
-		return 0;
+		return;
 	}
 
 	solock(so);
@@ -2224,7 +2224,7 @@ filt_sowdetach(struct knote *kn)
 	so = ((file_t *)kn->kn_obj)->f_data;
 	if (so == NULL) {
 		printf("%s: NULL socket for %p\n", __func__, kn->kn_obj);
-		return 0;
+		return;
 	}
 	solock(so);
 	SLIST_REMOVE(&so->so_snd.sb_sel.sel_klist, kn, knote, kn_selnext);
