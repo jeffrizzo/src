@@ -2174,6 +2174,11 @@ filt_sordetach(struct knote *kn)
 	struct socket	*so;
 
 	so = ((file_t *)kn->kn_obj)->f_data;
+	if (so == NULL) {
+		printf("%s: NULL socket for %p\n", __func__, kn->kn_obj);
+		return;
+	}
+
 	solock(so);
 	SLIST_REMOVE(&so->so_rcv.sb_sel.sel_klist, kn, knote, kn_selnext);
 	if (SLIST_EMPTY(&so->so_rcv.sb_sel.sel_klist))
@@ -2189,6 +2194,10 @@ filt_soread(struct knote *kn, long hint)
 	int rv;
 
 	so = ((file_t *)kn->kn_obj)->f_data;
+	if (so == NULL) {
+		printf("%s: NULL socket for %p\n", __func__, kn->kn_obj);
+		return;
+	}
 	if (hint != NOTE_SUBMIT)
 		solock(so);
 	kn->kn_data = so->so_rcv.sb_cc;
@@ -2213,6 +2222,10 @@ filt_sowdetach(struct knote *kn)
 	struct socket	*so;
 
 	so = ((file_t *)kn->kn_obj)->f_data;
+	if (so == NULL) {
+		printf("%s: NULL socket for %p\n", __func__, kn->kn_obj);
+		return;
+	}
 	solock(so);
 	SLIST_REMOVE(&so->so_snd.sb_sel.sel_klist, kn, knote, kn_selnext);
 	if (SLIST_EMPTY(&so->so_snd.sb_sel.sel_klist))
@@ -2228,6 +2241,10 @@ filt_sowrite(struct knote *kn, long hint)
 	int rv;
 
 	so = ((file_t *)kn->kn_obj)->f_data;
+	if (so == NULL) {
+		printf("%s: NULL socket for %p\n", __func__, kn->kn_obj);
+		return;
+	}
 	if (hint != NOTE_SUBMIT)
 		solock(so);
 	kn->kn_data = sbspace(&so->so_snd);
@@ -2257,6 +2274,10 @@ filt_solisten(struct knote *kn, long hint)
 	int rv;
 
 	so = ((file_t *)kn->kn_obj)->f_data;
+	if (so == NULL) {
+		printf("%s: NULL socket for %p\n", __func__, kn->kn_obj);
+		return;
+	}
 
 	/*
 	 * Set kn_data to number of incoming connections, not
@@ -2285,6 +2306,10 @@ soo_kqfilter(struct file *fp, struct knote *kn)
 	struct sockbuf	*sb;
 
 	so = ((file_t *)kn->kn_obj)->f_data;
+	if (so == NULL) {
+		printf("%s: NULL socket for %p\n", __func__, kn->kn_obj);
+		return;
+	}
 	solock(so);
 	switch (kn->kn_filter) {
 	case EVFILT_READ:
