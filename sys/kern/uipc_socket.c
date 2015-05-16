@@ -2176,7 +2176,7 @@ filt_sordetach(struct knote *kn)
 	so = ((file_t *)kn->kn_obj)->f_data;
 	if (so == NULL) {
 		printf("%s: NULL socket for %p\n", __func__, kn->kn_obj);
-		return;
+		return 0;
 	}
 
 	solock(so);
@@ -2196,7 +2196,7 @@ filt_soread(struct knote *kn, long hint)
 	so = ((file_t *)kn->kn_obj)->f_data;
 	if (so == NULL) {
 		printf("%s: NULL socket for %p\n", __func__, kn->kn_obj);
-		return;
+		return 0;
 	}
 	if (hint != NOTE_SUBMIT)
 		solock(so);
@@ -2224,7 +2224,7 @@ filt_sowdetach(struct knote *kn)
 	so = ((file_t *)kn->kn_obj)->f_data;
 	if (so == NULL) {
 		printf("%s: NULL socket for %p\n", __func__, kn->kn_obj);
-		return;
+		return 0;
 	}
 	solock(so);
 	SLIST_REMOVE(&so->so_snd.sb_sel.sel_klist, kn, knote, kn_selnext);
@@ -2243,7 +2243,7 @@ filt_sowrite(struct knote *kn, long hint)
 	so = ((file_t *)kn->kn_obj)->f_data;
 	if (so == NULL) {
 		printf("%s: NULL socket for %p\n", __func__, kn->kn_obj);
-		return;
+		return 0 ;
 	}
 	if (hint != NOTE_SUBMIT)
 		solock(so);
@@ -2276,7 +2276,7 @@ filt_solisten(struct knote *kn, long hint)
 	so = ((file_t *)kn->kn_obj)->f_data;
 	if (so == NULL) {
 		printf("%s: NULL socket for %p\n", __func__, kn->kn_obj);
-		return;
+		return 0;
 	}
 
 	/*
@@ -2308,7 +2308,7 @@ soo_kqfilter(struct file *fp, struct knote *kn)
 	so = ((file_t *)kn->kn_obj)->f_data;
 	if (so == NULL) {
 		printf("%s: NULL socket for %p\n", __func__, kn->kn_obj);
-		return;
+		return 0;
 	}
 	solock(so);
 	switch (kn->kn_filter) {
