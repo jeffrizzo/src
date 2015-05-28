@@ -1364,7 +1364,14 @@ MAKEDIRTARGET=\
 			real="${.CURDIR}/$${dir}" ;; \
 		esac; \
 		show=$${this:-.}; \
-		echo "$${target} ===> $${show%/}$${1:+	(with: $$@)}"; \
+		echo "[${MAKELEVEL}:$${_Z}] $${target} ===> $${show%/}$${1:+	(with: $$@)}"; \
+		if [ "${MAKELEVEL}" = "$${_L}" ]; then \
+			export _Z=$${_OZ}/$${target}; \
+		else \
+			export _OZ=$${_Z}; \
+			export _L=${MAKELEVEL}; \
+			export _Z=$${_Z}/$${target}; \
+		fi; \
 		cd "$${real}" \
 		&& ${MAKEDIRTARGETENV} ${MAKE} _THISDIR_="$${this}" "$$@" $${target}; \
 	}; \
