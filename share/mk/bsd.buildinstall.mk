@@ -23,7 +23,7 @@ SUBDIR_GROUP.${CUR_GROUP}+=	${dir}
 build_install:
 .for group in ${SUBDIR_GROUPS}
 .  if !empty(SUBDIR_GROUP.${group})
-	${MAKEDIRTARGET} . ${SUBDIR_GROUP.${group}:C/^/dependall-/}
+	${MAKEDIRTARGET} . ${SUBDIR_GROUP.${group}:C/^/dependall-/} && \
 	${MAKEDIRTARGET} . ${SUBDIR_GROUP.${group}:C/^/install-/}
 .  endif
 .endfor
