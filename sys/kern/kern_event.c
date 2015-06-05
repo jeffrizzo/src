@@ -1229,6 +1229,7 @@ kqueue_scan(file_t *fp, size_t maxevents, struct kevent *ulistp,
 			}
 			if ((kn->kn_flags & EV_ONESHOT) == 0) {
 				mutex_spin_exit(&kq->kq_lock);
+				KASSERT(kn->kn_fop->f_event != NULL);
 				KERNEL_LOCK(1, NULL);		/* XXXSMP */
 				rv = (*kn->kn_fop->f_event)(kn, 0);
 				KERNEL_UNLOCK_ONE(NULL);	/* XXXSMP */
@@ -1509,6 +1510,7 @@ knote(struct klist *list, long hint)
 {
 	struct knote *kn, *tmpkn;
 
+	KASSERT(kn->kn_fop->f_event != NULL);
 	SLIST_FOREACH_SAFE(kn, list, kn_selnext, tmpkn) {
 		if ((*kn->kn_fop->f_event)(kn, hint))
 			knote_activate(kn);
