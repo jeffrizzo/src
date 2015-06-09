@@ -1510,8 +1510,8 @@ knote(struct klist *list, long hint)
 {
 	struct knote *kn, *tmpkn;
 
-	KASSERT(kn->kn_fop->f_event != NULL);
 	SLIST_FOREACH_SAFE(kn, list, kn_selnext, tmpkn) {
+		KASSERT(kn->kn_fop->f_event != NULL);
 		if ((*kn->kn_fop->f_event)(kn, hint))
 			knote_activate(kn);
 	}
