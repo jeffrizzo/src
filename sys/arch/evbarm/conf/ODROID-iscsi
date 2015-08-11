@@ -1,0 +1,12 @@
+#
+#	$NetBSD: ODROID-C1,v 1.13 2015/03/22 17:28:22 jmcneill Exp $
+#
+#	Odroid-C1 (Amlogic S805) based SBC (Single Board Computer)
+#
+
+include	"arch/evbarm/conf/ODROID-C1"
+pseudo-device iscsi
+scsibus*	at scsi?
+sd*		at scsibus? target ? lun ?	# SCSI disk drives
+
+options 	FFS_EI
