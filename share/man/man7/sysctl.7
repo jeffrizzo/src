@@ -1,4 +1,4 @@
-.\"	$NetBSD: sysctl.7,v 1.85 2014/08/03 09:15:21 apb Exp $
+.\"	$NetBSD: sysctl.7,v 1.93 2015/09/24 14:56:41 christos Exp $
 .\"
 .\" Copyright (c) 1993
 .\"	The Regents of the University of California.  All rights reserved.
@@ -29,7 +29,7 @@
 .\"
 .\"	@(#)sysctl.3	8.4 (Berkeley) 5/9/95
 .\"
-.Dd August 3, 2014
+.Dd September 24, 2015
 .Dt SYSCTL 7
 .Os
 .Sh NAME
@@ -2232,6 +2232,7 @@ privilege may change the value.
 .It vm.uvmexp	struct uvmexp	no
 .It vm.uvmexp2	struct uvmexp_sysctl	no
 .It vm.vmmeter	struct vmtotal	no
+.It vm.proc.map	struct kinfo_vmentry	no
 .El
 .Pp
 .Bl -tag -width "123456"
@@ -2276,7 +2277,16 @@ The returned data consists of a
 .Vt struct vmtotal .
 .It vm.user_va0_disable
 A flag which controls whether user processes can map virtual address\ 0.
-.It Li vm.uspace ( VM_USPACE )
+.It Li vm.proc.map ( Dv VM_PROC )
+The third level is 
+.dv VM_PROC_MAP ,
+the fourth is the pid of the process to display the vm object entries for, and
+the fifth is the size of
+.Vt struct kinfo_vmentry .
+Returns an array of
+.Vt struct kinfo_vmentry
+objects.
+.It Li vm.uspace ( Dv VM_USPACE )
 The number of bytes allocated for each kernel stack.
 .It Li vm.uvmexp ( VM_UVMEXP )
 Return system wide virtual memory statistics.
