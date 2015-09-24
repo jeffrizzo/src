@@ -123,6 +123,8 @@
 ./usr/lib/libperfuse_g.a			comp-c-debuglib		debuglib
 ./usr/lib/libposix_g.a				comp-c-debuglib		debuglib
 ./usr/lib/libppath_g.a				comp-c-debuglib		debuglib
+./usr/lib/libproc_g.a				comp-c-libdebug		debuglib
+./usr/lib/libproc_p.a				comp-c-debuglib		debuglib
 ./usr/lib/libprop_g.a				comp-c-debuglib		debuglib
 ./usr/lib/libpthread_dbg_g.a			comp-c-debuglib		debuglib
 ./usr/lib/libpthread_g.a			comp-c-debuglib		debuglib
@@ -135,6 +137,7 @@
 ./usr/lib/libroken_g.a				comp-c-debuglib		debuglib,kerberos
 ./usr/lib/librpcsvc_g.a				comp-c-debuglib		debuglib
 ./usr/lib/librt_g.a				comp-c-debuglib		debuglib
+./usr/lib/librtld_db_g.a			comp-c-debuglib		debuglib
 ./usr/lib/librump_g.a				comp-c-debuglib		debuglib,rump
 ./usr/lib/librumpclient_g.a			comp-c-debuglib		debuglib,rump
 ./usr/lib/librumpcrypto_g.a			comp-obsolete		obsolete
@@ -1198,6 +1201,7 @@
 ./usr/libdata/debug/usr/sbin/rtquery.debug	comp-netutil-debug	debug
 ./usr/libdata/debug/usr/sbin/rtsold.debug	comp-netutil-debug	inet6,debug
 ./usr/libdata/debug/usr/sbin/rump.envstat.debug	comp-sysutil-debug	debug,rump
+./usr/libdata/debug/usr/sbin/rump.ndp.debug	comp-netutil-debug	inet6,debug,rump
 ./usr/libdata/debug/usr/sbin/rump.powerd.debug	comp-sysutil-debug	debug,rump
 ./usr/libdata/debug/usr/sbin/rump.traceroute.debug	comp-netutil-debug	debug,rump
 ./usr/libdata/debug/usr/sbin/rump_cd9660.debug	comp-puffs-debug	debug,rump
@@ -2085,6 +2089,8 @@
 ./usr/libdata/debug/usr/tests/lib/libposix/posix1/t_rename.debug	tests-lib-debug		debug,atf
 ./usr/libdata/debug/usr/tests/lib/libposix/posix2/t_rename.debug	tests-lib-debug		debug,atf
 ./usr/libdata/debug/usr/tests/lib/libppath/t_ppath.debug			tests-lib-debug		debug,atf
+./usr/libdata/debug/usr/tests/lib/libproc/proc_test.debug		tests-lib-debugq	debug,atf
+./usr/libdata/debug/usr/tests/lib/libproc/target_prog.debug		tests-lib-debugq	debug,atf
 ./usr/libdata/debug/usr/tests/lib/libprop/t_basic.debug			tests-lib-debug		debug,atf
 ./usr/libdata/debug/usr/tests/lib/libpthread/dlopen/h_pthread_dlopen.so.1.debug	tests-lib-debug	debug,atf,pic
 ./usr/libdata/debug/usr/tests/lib/libpthread/dlopen/t_dlopen.debug	tests-lib-debug	debug,atf,pic
