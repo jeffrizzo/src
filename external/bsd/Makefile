@@ -4,8 +4,8 @@
 
 SUBDIR=	acpica am-utils bind byacc cron dhcpcd ekermit elftosb \
 	fetch file flex less \
-	libarchive libevent liblzf libpcap mdocml ntp openresolv tcpdump \
-	tmux top tre wpa
+	libarchive libevent liblzf libpcap libproc librtld_db mdocml \
+	ntp openresolv tcpdump tmux top tre wpa
 
 .if (${MKATF} != "no")
 SUBDIR+= atf
