@@ -64,10 +64,6 @@ SUBDIR+=	../external/bsd/sljit/lib
 SUBDIR+=	libbpfjit
 .endif
 
-.if ${MKDTRACE} != "no"
-SUBDIR+=        ../external/cddl/osnet/lib/libdtrace
-.endif
-
 .if (${MKZFS} != "no")
 SUBDIR+=        ../external/cddl/osnet/lib/libavl
 SUBDIR+=        ../external/cddl/osnet/lib/libnvpair
@@ -211,6 +207,10 @@ SUBDIR+=	../external/bsd/openldap/lib	# depends on libcrypto, ...
 SUBDIR+=	.WAIT
 
 SUBDIR+=	../external/bsd/bind/lib	# depends on heimdal, libcrypto
+
+.if ${MKDTRACE} != "no"
+SUBDIR+=        ../external/cddl/osnet/lib/libdtrace	# depends on libproc
+.endif
 
 .if (${MKRUMP} != "no")
 SUBDIR+=	librumpdev	# depends on librump
