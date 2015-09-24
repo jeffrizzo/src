@@ -121,6 +121,7 @@
 ./usr/libdata/debug/usr/tests/lib/libposix/posix1			tests-lib-debug
 ./usr/libdata/debug/usr/tests/lib/libposix/posix2			tests-lib-debug
 ./usr/libdata/debug/usr/tests/lib/libppath				tests-lib-debug
+./usr/libdata/debug/usr/tests/lib/libproc				tests-lib-debug
 ./usr/libdata/debug/usr/tests/lib/libprop				tests-lib-debug
 ./usr/libdata/debug/usr/tests/lib/libpthread				tests-lib-debug
 ./usr/libdata/debug/usr/tests/lib/libpthread/dlopen			tests-lib-debug
