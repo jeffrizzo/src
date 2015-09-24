@@ -2902,6 +2902,10 @@
 ./usr/tests/lib/libppath/Atffile		tests-lib-tests		atf
 ./usr/tests/lib/libppath/Kyuafile		tests-lib-tests		atf,kyua
 ./usr/tests/lib/libppath/t_ppath		tests-lib-tests		atf
+./usr/tests/lib/libproc				tests-lib-debug		atf
+./usr/tests/lib/libproc/Atffile			tests-lib-debug		atf
+./usr/tests/lib/libproc/proc_test		tests-lib-debug		atf
+./usr/tests/lib/libproc/target_prog		tests-lib-debug		atf
 ./usr/tests/lib/libprop				tests-lib-tests		atf
 ./usr/tests/lib/libprop/Atffile			tests-lib-tests		atf
 ./usr/tests/lib/libprop/Kyuafile		tests-lib-tests		atf,kyua

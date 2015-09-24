@@ -339,6 +339,8 @@
 ./usr/libdata/debug/usr/lib/i386/npf/libext_log.so.0.0.debug	comp-obsolete	obsolete
 ./usr/libdata/debug/usr/lib/i386/npf/libext_normalise.so.0.0.debug	comp-obsolete	obsolete
 ./usr/libdata/debug/usr/lib/i386/npf/libext_rndblock.so.0.0.debug	comp-obsolete	obsolete
+./usr/libdata/debug/usr/lib/i386/libproc.so.0.0.debug	comp-compat-shlib	compat,pic,debug
+./usr/libdata/debug/usr/lib/i386/librtld_db.so.0.0.debug	comp-compat-shlib	compat,pic,debug
 ./usr/libdata/debug/usr/lib/libx86_64.so.0.0.debug	comp-sys-shlib		pic,debug
 ./usr/libdata/debug/usr/libexec/ld.elf_so-i386	comp-obsolete	obsolete
 ./usr/libdata/debug/usr/libexec/ld.elf_so-i386.debug	comp-sys-debug		debug,compat

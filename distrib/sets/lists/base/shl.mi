@@ -84,7 +84,7 @@
 ./lib/libtermlib.so.0.6				base-sys-shlib		dynamicroot
 ./lib/libutil.so				base-sys-shlib		dynamicroot
 ./lib/libutil.so.7				base-sys-shlib		dynamicroot
-./lib/libutil.so.7.21				base-sys-shlib		dynamicroot
+./lib/libutil.so.7.23				base-sys-shlib		dynamicroot
 ./lib/libz.so					base-sys-shlib		dynamicroot
 ./lib/libz.so.1					base-sys-shlib		dynamicroot
 ./lib/libz.so.1.0				base-sys-shlib		dynamicroot
@@ -445,6 +445,9 @@
 ./usr/lib/libprop.so				base-sys-shlib
 ./usr/lib/libprop.so.1				base-sys-shlib
 ./usr/lib/libprop.so.1.1			base-sys-shlib
+./usr/lib/libproc.so				base-sys-shlib
+./usr/lib/libproc.so.0				base-sys-shlib
+./usr/lib/libproc.so.0.0			base-sys-shlib
 ./usr/lib/libpthread.so				base-sys-shlib
 ./usr/lib/libpthread.so.1			base-sys-shlib
 ./usr/lib/libpthread.so.1.2			base-sys-shlib
@@ -475,6 +478,9 @@
 ./usr/lib/librt.so				base-sys-shlib
 ./usr/lib/librt.so.1				base-sys-shlib
 ./usr/lib/librt.so.1.1				base-sys-shlib
+./usr/lib/librtld_db.so				base-sys-shlib
+./usr/lib/librtld_db.so.0			base-sys-shlib
+./usr/lib/librtld_db.so.0.0			base-sys-shlib
 ./usr/lib/librump.so				base-rump-shlib		rump
 ./usr/lib/librump.so.0				base-rump-shlib		rump
 ./usr/lib/librump.so.0.0			base-rump-shlib		rump
@@ -792,7 +798,7 @@
 ./usr/lib/libusbhid.so.1.0			base-sys-shlib
 ./usr/lib/libutil.so				base-sys-shlib
 ./usr/lib/libutil.so.7				base-sys-shlib
-./usr/lib/libutil.so.7.21			base-sys-shlib
+./usr/lib/libutil.so.7.23			base-sys-shlib
 ./usr/lib/libuutil.so				base-zfs-shlib		dynamicroot,zfs
 ./usr/lib/libuutil.so.0				base-zfs-shlib		dynamicroot,zfs
 ./usr/lib/libuutil.so.0.0			base-zfs-shlib		zfs,dynamicroot
