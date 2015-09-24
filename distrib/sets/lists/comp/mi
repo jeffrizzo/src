@@ -4064,6 +4064,7 @@
 ./usr/libdata/lint/llib-lperfuse.ln		comp-perfuse-lintlib	lint
 ./usr/libdata/lint/llib-lposix.ln		comp-c-lintlib		lint
 ./usr/libdata/lint/llib-lppath.ln		comp-c-lintlib		lint
+./usr/libdata/lint/llib-lproc.ln		comp-c-lintlib		lint
 ./usr/libdata/lint/llib-lprop.ln		comp-c-lintlib		lint
 ./usr/libdata/lint/llib-lpthread.ln		comp-c-lintlib		lint
 ./usr/libdata/lint/llib-lpthread_dbg.ln		comp-c-lintlib		lint
@@ -4076,6 +4077,7 @@
 ./usr/libdata/lint/llib-lroken.ln		comp-krb5-lintlib	lint,kerberos
 ./usr/libdata/lint/llib-lrpcsvc.ln		comp-c-lintlib		lint
 ./usr/libdata/lint/llib-lrt.ln			comp-c-lintlib		lint
+./usr/libdata/lint/llib-lrtld_db.ln		comp-c-lintlib		lint
 ./usr/libdata/lint/llib-lrumpclient.ln		comp-c-lintlib		lint,rump
 ./usr/libdata/lint/llib-lrumphijack.ln		comp-c-lintlib		lint,rump
 ./usr/libdata/lint/llib-lrumpnet_netbt.ln	comp-c-lintlib		lint,rump
