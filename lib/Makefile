@@ -98,7 +98,9 @@ SUBDIR+=	../external/lgpl3/mpc/lib/libmpc
 #==================== 1st library dependency barrier ====================
 SUBDIR+=	.WAIT
 
+.if ${MKDTRACE} != "no" || ${MKCTF} != "no"
 SUBDIR+=	../external/bsd/librtld_db/lib		# depends on libutil
+.endif
 
 .if ${MKDTRACE} != "no" || ${MKCTF} != "no"
 SUBDIR+=        ../external/cddl/osnet/lib/libctf

@@ -4,7 +4,7 @@
 
 SUBDIR=	acpica am-utils bind byacc cron dhcpcd ekermit elftosb \
 	fetch file flex less \
-	libarchive libevent liblzf libpcap librtld_db mdocml \
+	libarchive libevent liblzf libpcap mdocml \
 	ntp openresolv tcpdump tmux top tre wpa
 
 .if (${MKATF} != "no")
@@ -37,6 +37,7 @@ SUBDIR+= pcc
 .endif
 .if (${MKDTRACE} != "no" || ${MKCTF} != "no")
 SUBDIR+= libproc
+SUBDIR+= librtld_db
 .endif
 
 SUBDIR+= blacklist pdisk dhcp nvi ppp smbfs
