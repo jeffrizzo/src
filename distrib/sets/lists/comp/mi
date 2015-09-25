@@ -3719,8 +3719,8 @@
 ./usr/lib/libposix_p.a				comp-c-proflib		profile
 ./usr/lib/libppath.a				comp-c-lib
 ./usr/lib/libppath_p.a				comp-c-proflib		profile
-./usr/lib/libproc.a				comp-c-lib
-./usr/lib/libproc_p.a				comp-c-lib
+./usr/lib/libproc.a				comp-c-lib		dtrace
+./usr/lib/libproc_p.a				comp-c-lib		dtrace
 ./usr/lib/libprop.a				comp-c-lib
 ./usr/lib/libprop_p.a				comp-c-proflib		profile
 ./usr/lib/libpthread.a				comp-c-lib

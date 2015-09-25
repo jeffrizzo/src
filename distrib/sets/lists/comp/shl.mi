@@ -136,9 +136,9 @@
 ./usr/lib/libperfuse_pic.a			comp-perfuse-piclib	picinstall
 ./usr/lib/libposix_pic.a			comp-c-piclib	picinstall
 ./usr/lib/libppath_pic.a			comp-c-piclib	picinstall
-./usr/lib/libproc.so				comp-c-shlib
-./usr/lib/libproc.so.0				comp-c-shlib
-./usr/lib/libproc_pic.a				comp-c-piclib	
+./usr/lib/libproc.so				comp-c-shlib	dtrace
+./usr/lib/libproc.so.0				comp-c-shlib	dtrace
+./usr/lib/libproc_pic.a				comp-c-piclib	dtrace
 ./usr/lib/libprop_pic.a				comp-c-piclib	picinstall
 ./usr/lib/libpthread_dbg_pic.a			comp-c-piclib	picinstall
 ./usr/lib/libpthread_pic.a			comp-c-piclib	picinstall
