@@ -153,7 +153,7 @@
 ./usr/libdata/debug/usr/lib/libperfuse.so.0.0.debug	comp-perfuse-debug	debug
 ./usr/libdata/debug/usr/lib/libposix.so.0.1.debug	comp-sys-debug	debug
 ./usr/libdata/debug/usr/lib/libppath.so.0.0.debug	comp-sys-debug	debug
-./usr/libdata/debug/usr/lib/libproc.so.0.0.debug	comp-sys-debug	debug
+./usr/libdata/debug/usr/lib/libproc.so.0.0.debug	comp-sys-debug	debug,dtrace
 ./usr/libdata/debug/usr/lib/libprop.so.1.1.debug	comp-sys-debug	debug
 ./usr/libdata/debug/usr/lib/libpthread.so.1.2.debug	comp-sys-debug	debug
 ./usr/libdata/debug/usr/lib/libpthread_dbg.so.2.0.debug	comp-sys-debug	debug

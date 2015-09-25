@@ -445,9 +445,9 @@
 ./usr/lib/libprop.so				base-sys-shlib
 ./usr/lib/libprop.so.1				base-sys-shlib
 ./usr/lib/libprop.so.1.1			base-sys-shlib
-./usr/lib/libproc.so				base-sys-shlib
-./usr/lib/libproc.so.0				base-sys-shlib
-./usr/lib/libproc.so.0.0			base-sys-shlib
+./usr/lib/libproc.so				base-sys-shlib		dtrace
+./usr/lib/libproc.so.0				base-sys-shlib		dtrace
+./usr/lib/libproc.so.0.0			base-sys-shlib		dtrace
 ./usr/lib/libpthread.so				base-sys-shlib
 ./usr/lib/libpthread.so.1			base-sys-shlib
 ./usr/lib/libpthread.so.1.2			base-sys-shlib
