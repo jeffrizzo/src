@@ -137,7 +137,7 @@
 ./usr/lib/libroken_g.a				comp-c-debuglib		debuglib,kerberos
 ./usr/lib/librpcsvc_g.a				comp-c-debuglib		debuglib
 ./usr/lib/librt_g.a				comp-c-debuglib		debuglib
-./usr/lib/librtld_db_g.a			comp-c-debuglib		debuglib
+./usr/lib/librtld_db_g.a			comp-c-debuglib		debuglib,dtrace
 ./usr/lib/librump_g.a				comp-c-debuglib		debuglib,rump
 ./usr/lib/librumpclient_g.a			comp-c-debuglib		debuglib,rump
 ./usr/lib/librumpcrypto_g.a			comp-obsolete		obsolete

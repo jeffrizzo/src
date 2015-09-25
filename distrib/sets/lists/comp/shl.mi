@@ -150,9 +150,9 @@
 ./usr/lib/libroken_pic.a			comp-c-piclib		kerberos,picinstall
 ./usr/lib/librpcsvc_pic.a			comp-c-piclib	picinstall
 ./usr/lib/librt_pic.a				comp-c-piclib	picinstall
-./usr/lib/librtld_db.so				comp-c-shlib
-./usr/lib/librtld_db.so.0			comp-c-shlib
-./usr/lib/librtld_db_pic.a			comp-c-piclib
+./usr/lib/librtld_db.so				comp-c-shlib	dtrace
+./usr/lib/librtld_db.so.0			comp-c-shlib	dtrace
+./usr/lib/librtld_db_pic.a			comp-c-piclib	dtrace
 ./usr/lib/librump_pic.a				comp-c-piclib		rump,picinstall
 ./usr/lib/librumpclient_pic.a			comp-c-piclib		rump,picinstall
 ./usr/lib/librumpcrypto_pic.a			comp-obsolete		obsolete
