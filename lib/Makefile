@@ -196,7 +196,9 @@ SUBDIR+=	../crypto/external/bsd/netpgp/lib  # depends on libcrypto, ...
 .endif
 
 SUBDIR+=	../external/bsd/libevent/lib	# depends on libcrypto
+.if ${MKDTRACE} != "no" && ${MKCTF} != "no"
 SUBDIR+=	../external/bsd/libproc/lib	# depends on libstdc++, libctf
+.endif
 SUBDIR+=	../external/bsd/fetch/lib	# depends on libssl
 
 .if (${MKLDAP} != "no")
