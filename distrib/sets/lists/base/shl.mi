@@ -478,9 +478,9 @@
 ./usr/lib/librt.so				base-sys-shlib
 ./usr/lib/librt.so.1				base-sys-shlib
 ./usr/lib/librt.so.1.1				base-sys-shlib
-./usr/lib/librtld_db.so				base-sys-shlib
-./usr/lib/librtld_db.so.0			base-sys-shlib
-./usr/lib/librtld_db.so.0.0			base-sys-shlib
+./usr/lib/librtld_db.so				base-sys-shlib		dtrace
+./usr/lib/librtld_db.so.0			base-sys-shlib		dtrace
+./usr/lib/librtld_db.so.0.0			base-sys-shlib		dtrace
 ./usr/lib/librump.so				base-rump-shlib		rump
 ./usr/lib/librump.so.0				base-rump-shlib		rump
 ./usr/lib/librump.so.0.0			base-rump-shlib		rump
