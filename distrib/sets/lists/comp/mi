@@ -3051,7 +3051,7 @@
 ./usr/include/rpcsvc/ypclnt.h			comp-c-include
 ./usr/include/rpcsvc/yppasswd.h			comp-c-include
 ./usr/include/rpcsvc/yppasswd.x			comp-c-include
-./usr/include/rtld_db.h				comp-c-include
+./usr/include/rtld_db.h				comp-c-include	dtrace
 ./usr/include/rump/p2k.h			comp-puffs-include	rump
 ./usr/include/rump/rump.h			comp-c-include	rump
 ./usr/include/rump/rump_namei.h			comp-c-include	rump
