@@ -1,4 +1,4 @@
-#	$NetBSD: Makefile.ioctl-c,v 1.25 2013/04/06 13:48:12 uebayasi Exp $
+#	$NetBSD: Makefile.ioctl-c,v 1.29 2015/09/26 03:31:11 christos Exp $
 
 # NOTE: <bsd.own.mk> needs to be previously .included for NETBSDSRCDIR
 
@@ -14,10 +14,13 @@ SETFILES:=${SETBASE}/mi
 SETFILES:= ${SETFILES} ${SETBASE}/${md}
 .endif
 .endfor
+.if ${MKDTRACE} != 'no"
+EXTRAS=	${NETBSDSRCDIR}/external/cddl/osnet/dist/uts/common/sys/dtrace.h
+.endif
 
 .if !make(cleandir) && !make(obj) && !make(includes) && !make(install)
 DEPFILEGLOB = ${TOOL_SED} -ne '/\/usr\/include\/.*\.h[ 	]/{s/[ 	]obsolete$$//;t' -e 's/xenio//;t' -e 's,\.\([^ 	]*\).*,${DESTDIR}\1,;p;}' ${SETFILES}
-DEPFILES != ${DEPFILEGLOB} | xargs egrep -l '(_IO\(|_IOR\(|_IOW\(|_IOWR\()' 2>/dev/null || :
+DEPFILES != (${DEPFILEGLOB}; echo ${EXTRAS}) | xargs egrep -l '(_IO\(|_IOR\(|_IOW\(|_IOWR\()' 2>/dev/null || :
 .endif
 
 ${PROG}-ioctl.c: mkioctls Makefile ${DEPFILES} ${SETFILES}
@@ -29,5 +32,9 @@ ${PROG}-ioctl.c: mkioctls Makefile ${DEPFILES} ${SETFILES}
 SRCS+=		${PROG}-ioctl.c
 CLEANFILES+=	${PROG}-ioctl.c
 DPSRCS+=	${PROG}-ioctl.c
+.if ${MKDTRACE} != 'no"
+CPPFLAGS+=	-I${NETBSDSRCDIR}/external/cddl/osnet/sys
+CPPFLAGS+=	-I${NETBSDSRCDIR}/external/cddl/osnet/dist/uts/common
+.endif
 
 ${DEPFILES}: .PRECIOUS
