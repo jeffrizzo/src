@@ -98,7 +98,7 @@ SUBDIR+=	../external/lgpl3/mpc/lib/libmpc
 #==================== 1st library dependency barrier ====================
 SUBDIR+=	.WAIT
 
-.if ${MKDTRACE} != "no" || ${MKCTF} != "no"
+.if ${MKDTRACE} != "no"
 SUBDIR+=	../external/bsd/librtld_db/lib		# depends on libutil
 .endif
 
@@ -198,7 +198,7 @@ SUBDIR+=	../crypto/external/bsd/netpgp/lib  # depends on libcrypto, ...
 .endif
 
 SUBDIR+=	../external/bsd/libevent/lib	# depends on libcrypto
-.if ${MKDTRACE} != "no" && ${MKCTF} != "no"
+.if ${MKDTRACE} != "no"
 SUBDIR+=	../external/bsd/libproc/lib	# depends on libstdc++, libctf
 .endif
 SUBDIR+=	../external/bsd/fetch/lib	# depends on libssl
