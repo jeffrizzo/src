@@ -35,7 +35,7 @@ SUBDIR+= llvm
 .if (${MKPCC} != "no")
 SUBDIR+= pcc
 .endif
-.if (${MKDTRACE} != "no" || ${MKCTF} != "no")
+.if (${MKDTRACE} != "no")
 SUBDIR+= libproc
 SUBDIR+= librtld_db
 .endif
