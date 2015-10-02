@@ -147,18 +147,10 @@ static void dump_vmcmds(const struct exec_package * const, size_t, int);
 /*
  * DTrace SDT provider definitions
  */
-SDT_PROBE_DEFINE(proc,,,exec,exec,
-	    "char *", NULL,
-	    NULL, NULL, NULL, NULL,
-	    NULL, NULL, NULL, NULL);
-SDT_PROBE_DEFINE(proc,,,exec_success,exec-success, 
-	    "char *", NULL,
-	    NULL, NULL, NULL, NULL,
-	    NULL, NULL, NULL, NULL);
-SDT_PROBE_DEFINE(proc,,,exec_failure,exec-failure, 
-	    "int", NULL,
-	    NULL, NULL, NULL, NULL,
-	    NULL, NULL, NULL, NULL);
+SDT_PROVIDER_DECLARE(proc);
+SDT_PROBE_DEFINE1(proc, kernel, , exec, "char *");
+SDT_PROBE_DEFINE1(proc, kernel, , exec__success, "char *");
+SDT_PROBE_DEFINE1(proc, kernel, , exec__failure, "int");
 
 /*
  * Exec function switch:
@@ -608,7 +600,7 @@ execve_loadvm(struct lwp *l, const char *path, char * const *args,
 	p = l->l_proc;
 	modgen = 0;
 
-	SDT_PROBE(proc,,,exec, path, 0, 0, 0, 0);
+	SDT_PROBE(proc, kernel, , exec, path, 0, 0, 0, 0);
 
 	/*
 	 * Check if we have exceeded our number of processes limit.
@@ -775,7 +767,7 @@ execve_loadvm(struct lwp *l, const char *path, char * const *args,
 		goto retry;
 	}
 
-	SDT_PROBE(proc,,,exec_failure, error, 0, 0, 0, 0);
+	SDT_PROBE(proc, kernel, , exec__failure, error, 0, 0, 0, 0);
 	return error;
 }
 
@@ -1235,7 +1227,7 @@ execve_runproc(struct lwp *l, struct execve_data * restrict data,
 
 	kmem_free(epp->ep_hdr, epp->ep_hdrlen);
 
-	SDT_PROBE(proc,,,exec_success, epp->ep_name, 0, 0, 0, 0);
+	SDT_PROBE(proc, kernel, , exec__success, epp->ep_kname, 0, 0, 0, 0);
 
 	emulexec(l, epp);
 
@@ -1286,7 +1278,7 @@ execve_runproc(struct lwp *l, struct execve_data * restrict data,
 	return EJUSTRETURN;
 
  exec_abort:
-	SDT_PROBE(proc,,,exec_failure, error, 0, 0, 0, 0);
+	SDT_PROBE(proc, kernel, , exec__failure, error, 0, 0, 0, 0);
 	rw_exit(&p->p_reflock);
 	if (!no_local_exec_lock)
 		rw_exit(&exec_lock);

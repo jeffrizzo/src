@@ -70,6 +70,7 @@
 __KERNEL_RCSID(0, "$NetBSD: kern_exit.c,v 1.244.2.2 2015/11/05 09:30:10 snj Exp $");
 
 #include "opt_ktrace.h"
+#include "opt_dtrace.h"
 #include "opt_perfctrs.h"
 #include "opt_sysv.h"
 
@@ -123,10 +124,9 @@ static void proc_free(struct proc *, struct rusage *);
 /*
  * DTrace SDT provider definitions
  */
-SDT_PROBE_DEFINE(proc,,,exit,exit,
-	    "int", NULL, 		/* reason */
-	    NULL, NULL, NULL, NULL,
-	    NULL, NULL, NULL, NULL);
+SDT_PROVIDER_DECLARE(proc);
+SDT_PROBE_DEFINE1(proc, kernel, , exit, "int");
+
 /*
  * Fill in the appropriate signal information, and signal the parent.
  */
@@ -421,7 +421,7 @@ exit1(struct lwp *l, int rv)
 	 */
 	KNOTE(&p->p_klist, NOTE_EXIT);
 
-	SDT_PROBE(proc,,,exit,
+	SDT_PROBE(proc, kernel, , exit,
 		(WCOREDUMP(rv) ? CLD_DUMPED :
 		 (WIFSIGNALED(rv) ? CLD_KILLED : CLD_EXITED)),
 		0,0,0,0);
