@@ -301,6 +301,7 @@
 ./usr/libdata/debug/usr/lib/oabi/libpmc.so.1.0.debug		comp-sys-debug	debug,compat
 ./usr/libdata/debug/usr/lib/oabi/libposix.so.0.1.debug	comp-sys-debug	debug,compat
 ./usr/libdata/debug/usr/lib/oabi/libppath.so.0.0.debug	comp-sys-debug	debug,compat
+./usr/libdata/debug/usr/lib/oabi/libproc.so.0.0.debug	comp-sys-debug	debug,compat,dtrace
 ./usr/libdata/debug/usr/lib/oabi/libprop.so.1.1.debug	comp-sys-debug	debug,compat
 ./usr/libdata/debug/usr/lib/oabi/libpthread.so.1.2.debug	comp-sys-debug	debug,compat
 ./usr/libdata/debug/usr/lib/oabi/libpthread_dbg.so.2.0.debug	comp-sys-debug	debug,compat
@@ -313,6 +314,7 @@
 ./usr/libdata/debug/usr/lib/oabi/libroken.so.19.0.debug	comp-compat-shlib	 compat,pic,kerberos,debug
 ./usr/libdata/debug/usr/lib/oabi/librpcsvc.so.1.0.debug	comp-net-debug	debug,compat
 ./usr/libdata/debug/usr/lib/oabi/librt.so.1.1.debug		comp-sys-debug	debug,compat
+./usr/libdata/debug/usr/lib/oabi/librtld_db.so.0.0.debug	comp-sys-debug	debug,compat,dtrace
 ./usr/libdata/debug/usr/lib/oabi/librump.so.0.0.debug	comp-rump-debug	debug,compat,rump
 ./usr/libdata/debug/usr/lib/oabi/librumpclient.so.0.0.debug	comp-rump-debug	debug,compat,rump
 ./usr/libdata/debug/usr/lib/oabi/librumpcrypto.so.0.0.debug	comp-obsolete		obsolete,compat
