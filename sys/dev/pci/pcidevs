@@ -631,6 +631,7 @@ vendor FREESCALE	0x1957	Freescale Semiconductor
 vendor ATTANSIC		0x1969	Attansic Technologies
 vendor JMICRON		0x197b	JMicron Technology
 vendor ASPEED		0x1a03	ASPEED Technology
+vendor AWT		0x1a3b	AWT
 vendor EVE		0x1adb	EVE
 vendor QUMRANET		0x1af4	Qumranet
 vendor ASMEDIA		0x1b21  ASMedia
@@ -1629,6 +1630,9 @@ product AVM FRITZ_CARD		0x0a00	Fritz! Card ISDN Interface
 product AVM FRITZ_PCI_V2_ISDN	0x0e00	Fritz!PCI v2.0 ISDN Interface
 product AVM B1			0x0700	Basic Rate B1 ISDN Interface
 product AVM T1			0x1200	Primary Rate T1 ISDN Interface
+
+/* AWT products */
+product AWT RT2890		0x1059	RT2890
 
 /* RMI products */
 product RMI XLR_PCIX		0x000b	XLR PCI-X bridge
