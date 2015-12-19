@@ -638,6 +638,7 @@
 #define	PCI_VENDOR_ATTANSIC	0x1969		/* Attansic Technologies */
 #define	PCI_VENDOR_JMICRON	0x197b		/* JMicron Technology */
 #define	PCI_VENDOR_ASPEED	0x1a03		/* ASPEED Technology */
+#define	PCI_VENDOR_AWT	0x1a3b		/* AWT */
 #define	PCI_VENDOR_EVE	0x1adb		/* EVE */
 #define	PCI_VENDOR_QUMRANET	0x1af4		/* Qumranet */
 #define	PCI_VENDOR_ASMEDIA	0x1b21		/* ASMedia */
@@ -1636,6 +1637,9 @@
 #define	PCI_PRODUCT_AVM_FRITZ_PCI_V2_ISDN	0x0e00		/* Fritz!PCI v2.0 ISDN Interface */
 #define	PCI_PRODUCT_AVM_B1	0x0700		/* Basic Rate B1 ISDN Interface */
 #define	PCI_PRODUCT_AVM_T1	0x1200		/* Primary Rate T1 ISDN Interface */
+
+/* AWT products */
+#define	PCI_PRODUCT_AWT_RT2890	0x1059		/* RT2890 */
 
 /* RMI products */
 #define	PCI_PRODUCT_RMI_XLR_PCIX	0x000b		/* XLR PCI-X bridge */
