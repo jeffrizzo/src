@@ -140,8 +140,6 @@ ral_pci_attach(device_t parent, device_t self, void *aux)
 
 	pci_aprint_devinfo(pa, NULL);
 
-	psc->sc_opns = (PCI_PRODUCT(pa->pa_id) == PCI_PRODUCT_RALINK_RT2560) ?
-	    &ral_rt2560_opns : &ral_rt2661_opns;
 	if (PCI_VENDOR(pa->pa_id) == PCI_VENDOR_RALINK) {
 		switch (PCI_PRODUCT(pa->pa_id)) {
 		case PCI_PRODUCT_RALINK_RT2560:
