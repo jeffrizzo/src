@@ -51,6 +51,7 @@ __KERNEL_RCSID(0, "$NetBSD: if_ral_pci.c,v 1.21 2014/03/29 19:28:25 christos Exp
 
 #include <dev/ic/rt2560var.h>
 #include <dev/ic/rt2661var.h>
+#include <dev/ic/rt2860var.h>
 
 #include <dev/pci/pcireg.h>
 #include <dev/pci/pcivar.h>
@@ -70,12 +71,18 @@ static struct ral_opns {
 	rt2661_attach,
 	rt2661_detach,
 	rt2661_intr
+
+}, ral_rt2860_opns = {
+	rt2860_attach,
+	rt2860_detach,
+	rt2860_intr
 };
 
 struct ral_pci_softc {
 	union {
 		struct rt2560_softc	sc_rt2560;
 		struct rt2661_softc	sc_rt2661;
+		struct rt2860_softc	sc_rt2860;
 	} u;
 #define sc_sc	u.sc_rt2560
 
@@ -108,6 +115,7 @@ ral_pci_match(device_t parent, cfdata_t cfdata,
 			case PCI_PRODUCT_RALINK_RT2561:
 			case PCI_PRODUCT_RALINK_RT2561S:
 			case PCI_PRODUCT_RALINK_RT2661:
+			case PCI_PRODUCT_RALINK_RT5390:
 				return 1;
 			default:
 				return 0;
@@ -126,7 +134,7 @@ ral_pci_attach(device_t parent, device_t self, void *aux)
 	const char *intrstr;
 	bus_addr_t base;
 	pci_intr_handle_t ih;
-	pcireg_t reg;
+	pcireg_t memtype, reg;
 	int error;
 	char intrbuf[PCI_INTRSTR_LEN];
 
@@ -134,6 +142,24 @@ ral_pci_attach(device_t parent, device_t self, void *aux)
 
 	psc->sc_opns = (PCI_PRODUCT(pa->pa_id) == PCI_PRODUCT_RALINK_RT2560) ?
 	    &ral_rt2560_opns : &ral_rt2661_opns;
+	if (PCI_VENDOR(pa->pa_id) == PCI_VENDOR_RALINK) {
+		switch (PCI_PRODUCT(pa->pa_id)) {
+		case PCI_PRODUCT_RALINK_RT2560:
+			psc->sc_opns = &ral_rt2560_opns;
+			break;
+		case PCI_PRODUCT_RALINK_RT2561:
+		case PCI_PRODUCT_RALINK_RT2561S:
+		case PCI_PRODUCT_RALINK_RT2661:
+			psc->sc_opns = &ral_rt2661_opns;
+			break;
+		default:
+			psc->sc_opns = &ral_rt2860_opns;
+			break;
+		}
+	} else {
+		/* all other vendors are RT2860 only */
+		psc->sc_opns = &ral_rt2860_opns;
+	}
 
 	sc->sc_dev = self;
 	sc->sc_dmat = pa->pa_dmat;
@@ -145,9 +171,9 @@ ral_pci_attach(device_t parent, device_t self, void *aux)
 	pci_conf_write(pa->pa_pc, pa->pa_tag, PCI_COMMAND_STATUS_REG, reg);
 
 	/* map control/status registers */
-	error = pci_mapreg_map(pa, RAL_PCI_BAR0, PCI_MAPREG_TYPE_MEM |
-	    PCI_MAPREG_MEM_TYPE_32BIT, 0, &sc->sc_st, &sc->sc_sh, &base,
-	    &psc->sc_mapsize);
+	memtype = pci_mapreg_type(pa->pa_pc, pa->pa_tag, RAL_PCI_BAR0);
+	error = pci_mapreg_map(pa, RAL_PCI_BAR0, memtype, 0, &sc->sc_st,
+	    &sc->sc_sh, &base, &psc->sc_mapsize);
 
 	if (error != 0) {
 		aprint_error(": could not map memory space\n");
