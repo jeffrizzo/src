@@ -105,13 +105,10 @@ struct rt2860_node {
 
 struct rt2860_softc {
 	device_t			sc_dev;
-	struct ethercom			sc_ec;
-#define sc_if  sc_ec.ec_if
 
 	struct ieee80211com		sc_ic;
 	int				(*sc_newstate)(struct ieee80211com *,
 					    enum ieee80211_state, int);
-	struct ieee80211_amrr		amrr;
 
 	int				(*sc_enable)(struct rt2860_softc *);
 	void				(*sc_disable)(struct rt2860_softc *);
@@ -120,6 +117,9 @@ struct rt2860_softc {
 	bus_space_tag_t			sc_st;
 	bus_space_handle_t		sc_sh;
 
+	struct ethercom			sc_ec;
+#define sc_if  sc_ec.ec_if
+
 	uint16_t			(*sc_srom_read)(struct rt2860_softc *,
 					    uint16_t);
 
@@ -127,6 +127,8 @@ struct rt2860_softc {
 #define RT2860_ENABLED		(1 << 0)
 #define RT2860_ADVANCED_PS	(1 << 1)
 #define RT2860_PCIE		(1 << 2)
+
+	struct ieee80211_amrr		amrr;
 
 	uint32_t			sc_ic_flags;
 	int				fixed_ridx;
