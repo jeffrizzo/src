@@ -1,0 +1,6 @@
+include	"arch/amd64/conf/GENERIC"
+
+options 	DEBUG,LOCKDEBUG
+options 	RAL_DEBUG
+options 	DDB_TEE_MSGBUF=1
+makeoptions	DEBUG="-g"
