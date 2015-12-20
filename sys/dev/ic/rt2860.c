@@ -60,7 +60,6 @@ __KERNEL_RCSID(0, "$NetBSD$");
 
 #include <dev/pci/pcidevs.h>
 
-#define RAL_DEBUG
 #ifdef RAL_DEBUG
 #define DPRINTF(x)	do { if (rt2860_debug > 0) printf x; } while (0)
 #define DPRINTFN(n, x)	do { if (rt2860_debug >= (n)) printf x; } while (0)
