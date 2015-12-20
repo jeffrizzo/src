@@ -357,6 +357,7 @@ rt2860_attachhook(struct device *self)
 
 	ifp->if_softc = sc;
 	ifp->if_flags = IFF_BROADCAST | IFF_SIMPLEX | IFF_MULTICAST;
+	ifp->if_init = rt2860_init;
 	ifp->if_ioctl = rt2860_ioctl;
 	ifp->if_start = rt2860_start;
 	ifp->if_watchdog = rt2860_watchdog;
@@ -1823,16 +1824,20 @@ rt2860_ioctl(struct ifnet *ifp, u_long cmd, void *data)
 	s = splnet();
 
 	switch (cmd) {
-	case SIOCSIFADDR:
-		ifp->if_flags |= IFF_UP;
-		/* FALLTHROUGH */
 	case SIOCSIFFLAGS:
-		if (ifp->if_flags & IFF_UP) {
-			if (!(ifp->if_flags & IFF_RUNNING))
-				rt2860_init(ifp);
-		} else {
-			if (ifp->if_flags & IFF_RUNNING)
-				rt2860_stop(ifp, 1);
+		if ((error = ifioctl_common(ifp, cmd, data)) != 0)
+			break;
+		switch (ifp->if_flags & (IFF_UP|IFF_RUNNING)) {
+		case IFF_UP|IFF_RUNNING:
+			break;
+		case IFF_UP:
+			rt2860_init(ifp);
+			break;
+		case IFF_RUNNING:
+			rt2860_stop(ifp, 1);
+			break;
+		case 0:
+			break;
 		}
 		break;
 
