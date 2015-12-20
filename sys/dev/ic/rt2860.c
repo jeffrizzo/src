@@ -307,6 +307,7 @@ rt2860_attachhook(struct device *self)
 		return;
 	}
 
+	ic->ic_ifp = ifp;
 	ic->ic_phytype = IEEE80211_T_OFDM; /* not only, but not used */
 	ic->ic_opmode = IEEE80211_M_STA; /* default to BSS mode */
 	ic->ic_state = IEEE80211_S_INIT;
@@ -1589,10 +1590,8 @@ rt2860_tx(struct rt2860_softc *sc, struct mbuf *m, struct ieee80211_node *ni)
 		txwi->flags |= RT2860_TX_TS;
 #endif
 
-#if NBPFILTER > 0
 	if (__predict_false(sc->sc_drvbpf != NULL)) {
 		struct rt2860_tx_radiotap_header *tap = &sc->sc_txtap;
-		struct mbuf mb;
 
 		tap->wt_flags = 0;
 		tap->wt_rate = rt2860_rates[ridx].rate;
@@ -1602,15 +1601,8 @@ rt2860_tx(struct rt2860_softc *sc, struct mbuf *m, struct ieee80211_node *ni)
 		if (mcs & RT2860_PHY_SHPRE)
 			tap->wt_flags |= IEEE80211_RADIOTAP_F_SHORTPRE;
 
-		mb.m_data = (void *)tap;
-		mb.m_len = sc->sc_txtap_len;
-		mb.m_next = m;
-		mb.m_nextpkt = NULL;
-		mb.m_type = 0;
-		mb.m_flags = 0;
-		bpf_mtap(sc->sc_drvbpf, &mb, BPF_DIRECTION_OUT);
+		bpf_mtap2(sc->sc_drvbpf, tap, sc->sc_txtap_len, m);
 	}
-#endif
 
 	/* copy and trim 802.11 header */
 	memcpy(txwi + 1, wh, hdrlen);
