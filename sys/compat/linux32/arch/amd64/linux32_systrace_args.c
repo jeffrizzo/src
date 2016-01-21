@@ -156,7 +156,7 @@ systrace_args(register_t sysnum, const void *params, uintptr_t *uarg, size_t *n_
 		struct compat_43_netbsd32_olseek_args *p = params;
 		iarg[0] = SCARG(p, fd); /* int */
 		iarg[1] = SCARG(p, offset); /* netbsd32_long */
-		iarg[2] = SCARG(p, chence); /* int */
+		iarg[2] = SCARG(p, whence); /* int */
 		*n_args = 3;
 		break;
 	}
@@ -309,7 +309,7 @@ systrace_args(register_t sysnum, const void *params, uintptr_t *uarg, size_t *n_
 	case 48: {
 		struct linux32_sys_signal_args *p = params;
 		iarg[0] = SCARG(p, signum); /* int */
-		iarg[1] = SCARG(p, handler); /* linux32_handler_t */
+		uarg[1] = (intptr_t) SCARG(p, handler).i32; /* linux32_handlerp_t */
 		*n_args = 2;
 		break;
 	}
@@ -518,7 +518,7 @@ systrace_args(register_t sysnum, const void *params, uintptr_t *uarg, size_t *n_
 	/* netbsd32_readlink */
 	case 85: {
 		struct netbsd32_readlink_args *p = params;
-		uarg[0] = (intptr_t) SCARG(p, name).i32; /* netbsd32_charp */
+		uarg[0] = (intptr_t) SCARG(p, path).i32; /* netbsd32_charp */
 		uarg[1] = (intptr_t) SCARG(p, buf).i32; /* netbsd32_charp */
 		iarg[2] = SCARG(p, count); /* netbsd32_size_t */
 		*n_args = 3;
@@ -2303,7 +2303,7 @@ systrace_entry_setargdesc(int sysnum, int ndx, char *desc, size_t descsz)
 			p = "int";
 			break;
 		case 1:
-			p = "linux32_handler_t";
+			p = "linux32_handlerp_t";
 			break;
 		default:
 			break;
