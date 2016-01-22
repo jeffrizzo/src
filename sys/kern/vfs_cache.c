@@ -62,7 +62,6 @@ __KERNEL_RCSID(0, "$NetBSD: vfs_cache.c,v 1.108 2015/10/02 16:54:15 christos Exp
 
 #include "opt_ddb.h"
 #include "opt_revcache.h"
-#include "opt_dtrace.h"
 
 #include <sys/param.h>
 #include <sys/systm.h>
@@ -171,9 +170,6 @@ static void cache_disassociate(struct namecache *);
 static void cache_reclaim(void);
 static int cache_ctor(void *, void *, int);
 static void cache_dtor(void *, void *);
-
-static struct sysctllog *sysctllog;
-static void sysctl_cache_stat_setup(void);
 
 SDT_PROVIDER_DEFINE(vfs);
 
