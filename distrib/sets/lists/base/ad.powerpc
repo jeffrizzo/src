@@ -296,7 +296,7 @@
 ./usr/lib/powerpc/libusbhid.so.1		base-compat-shlib	compat,arch64,pic
 ./usr/lib/powerpc/libusbhid.so.1.0		base-compat-shlib	compat,arch64,pic
 ./usr/lib/powerpc/libutil.so.7			base-compat-shlib	compat,arch64,pic
-./usr/lib/powerpc/libutil.so.7.21		base-compat-shlib	compat,arch64,pic
+./usr/lib/powerpc/libutil.so.7.23		base-compat-shlib	compat,arch64,pic
 ./usr/lib/powerpc/libwind.so.0			base-compat-shlib	compat,arch64,pic,kerberos
 ./usr/lib/powerpc/libwind.so.0.0		base-compat-shlib	compat,arch64,pic,kerberos
 ./usr/lib/powerpc/libwrap.so.1			base-compat-shlib	compat,arch64,pic

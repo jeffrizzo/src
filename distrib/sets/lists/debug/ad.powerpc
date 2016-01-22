@@ -260,7 +260,7 @@
 ./usr/libdata/debug/usr/lib/powerpc/libtre.so.0.8.debug			comp-compat-shlib	compat,arch64,debug,pic
 ./usr/libdata/debug/usr/lib/powerpc/libukfs.so.1.0.debug			comp-compat-shlib	compat,arch64,debug,pic,rump
 ./usr/libdata/debug/usr/lib/powerpc/libusbhid.so.1.0.debug		comp-compat-shlib	compat,arch64,debug,pic
-./usr/libdata/debug/usr/lib/powerpc/libutil.so.7.21.debug			comp-compat-shlib	compat,arch64,debug,pic
+./usr/libdata/debug/usr/lib/powerpc/libutil.so.7.23.debug			comp-compat-shlib	compat,arch64,debug,pic
 ./usr/libdata/debug/usr/lib/powerpc/libwind.so.0.0.debug			comp-compat-shlib	compat,arch64,debug,pic,kerberos
 ./usr/libdata/debug/usr/lib/powerpc/libwrap.so.1.0.debug			comp-compat-shlib	compat,arch64,debug,pic
 ./usr/libdata/debug/usr/lib/powerpc/libz.so.1.0.debug			comp-compat-shlib	compat,arch64,debug,pic

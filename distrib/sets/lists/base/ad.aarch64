@@ -316,7 +316,7 @@
 ./usr/lib/eabi/libusbhid.so.1			base-compat-shlib	compat,pic
 ./usr/lib/eabi/libusbhid.so.1.0			base-compat-shlib	compat,pic
 ./usr/lib/eabi/libutil.so.7			base-compat-shlib	compat,pic
-./usr/lib/eabi/libutil.so.7.21			base-compat-shlib	compat,pic
+./usr/lib/eabi/libutil.so.7.23			base-compat-shlib	compat,pic
 ./usr/lib/eabi/libwind.so.0			base-compat-shlib	compat,pic,kerberos
 ./usr/lib/eabi/libwind.so.0.0			base-compat-shlib	compat,pic,kerberos
 ./usr/lib/eabi/libwrap.so.1			base-compat-shlib	compat,pic
@@ -630,7 +630,7 @@
 #./usr/lib/eabihf/libusbhid.so.1			base-compat-shlib	compat,pic
 #./usr/lib/eabihf/libusbhid.so.1.0			base-compat-shlib	compat,pic
 #./usr/lib/eabihf/libutil.so.7			base-compat-shlib	compat,pic
-#./usr/lib/eabihf/libutil.so.7.21			base-compat-shlib	compat,pic
+#./usr/lib/eabihf/libutil.so.7.23			base-compat-shlib	compat,pic
 #./usr/lib/eabihf/libwind.so.0			base-compat-shlib	compat,pic,kerberos
 #./usr/lib/eabihf/libwind.so.0.0			base-compat-shlib	compat,pic,kerberos
 #./usr/lib/eabihf/libwrap.so.1			base-compat-shlib	compat,pic
@@ -944,7 +944,7 @@
 ./usr/lib/oabi/libusbhid.so.1			base-compat-shlib	compat,pic
 ./usr/lib/oabi/libusbhid.so.1.0			base-compat-shlib	compat,pic
 ./usr/lib/oabi/libutil.so.7			base-compat-shlib	compat,pic
-./usr/lib/oabi/libutil.so.7.21			base-compat-shlib	compat,pic
+./usr/lib/oabi/libutil.so.7.23			base-compat-shlib	compat,pic
 ./usr/lib/oabi/libwind.so.0			base-compat-shlib	compat,pic,kerberos
 ./usr/lib/oabi/libwind.so.0.0			base-compat-shlib	compat,pic,kerberos
 ./usr/lib/oabi/libwrap.so.1			base-compat-shlib	compat,pic
