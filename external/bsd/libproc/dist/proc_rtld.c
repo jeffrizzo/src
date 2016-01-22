@@ -41,6 +41,17 @@ __RCSID("$NetBSD: proc_rtld.c,v 1.2 2015/09/24 14:12:48 christos Exp $");
 #include "libproc.h"
 #include "_libproc.h"
 
+void *
+reallocf(void *ptr, size_t size)
+{
+	void *nptr;
+
+	nptr = realloc(ptr, size);
+	if (!nptr && ptr && size != 0)
+		free(ptr);
+	return (nptr);
+}
+
 static int
 map_iter(const rd_loadobj_t *lop, void *arg)
 {
@@ -48,8 +59,9 @@ map_iter(const rd_loadobj_t *lop, void *arg)
 
 	if (phdl->nobjs >= phdl->rdobjsz) {
 		phdl->rdobjsz *= 2;
-		if (reallocarr(&phdl->rdobjs, sizeof(*phdl->rdobjs),
-		    phdl->rdobjsz))
+		phdl->rdobjs = reallocf(phdl->rdobjs, sizeof(*phdl->rdobjs) *
+		    phdl->rdobjsz);
+		if (phdl->rdobjs == NULL)
 			return (-1);
 	}
 	if (strcmp(lop->rdl_path, phdl->execname) == 0 &&
