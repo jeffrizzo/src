@@ -201,7 +201,7 @@
 ./usr/libdata/debug/usr/lib/64/libukfs.so.1.0.debug	comp-sys-debug	debug,compat,rump,arch64
 ./usr/libdata/debug/usr/lib/64/libumem.so.0.0.debug	comp-zfs-debug	zfs,dynamicroot,debug,compat,arch64
 ./usr/libdata/debug/usr/lib/64/libusbhid.so.1.0.debug	comp-sys-debug	debug,compat,arch64
-./usr/libdata/debug/usr/lib/64/libutil.so.7.21.debug	comp-sys-debug	debug,compat,arch64
+./usr/libdata/debug/usr/lib/64/libutil.so.7.23.debug	comp-sys-debug	debug,compat,arch64
 ./usr/libdata/debug/usr/lib/64/libuutil.so.0.0.debug	comp-zfs-debug	zfs,dynamicroot,debug,compat,arch64
 ./usr/libdata/debug/usr/lib/64/libwind.so.0.0.debug	comp-compat-shlib	 compat,pic,kerberos,debug,arch64
 ./usr/libdata/debug/usr/lib/64/libwrap.so.1.0.debug	comp-net-debug	debug,compat,arch64
@@ -380,7 +380,7 @@
 ./usr/libdata/debug/usr/lib/o32/libukfs.so.1.0.debug	comp-sys-debug	debug,compat,rump,arch64
 ./usr/libdata/debug/usr/lib/o32/libumem.so.0.0.debug	comp-zfs-debug	zfs,dynamicroot,debug,compat,arch64
 ./usr/libdata/debug/usr/lib/o32/libusbhid.so.1.0.debug	comp-sys-debug	debug,compat,arch64
-./usr/libdata/debug/usr/lib/o32/libutil.so.7.21.debug	comp-sys-debug	debug,compat,arch64
+./usr/libdata/debug/usr/lib/o32/libutil.so.7.23.debug	comp-sys-debug	debug,compat,arch64
 ./usr/libdata/debug/usr/lib/o32/libuutil.so.0.0.debug	comp-zfs-debug	zfs,dynamicroot,debug,compat,arch64
 ./usr/libdata/debug/usr/lib/o32/libwind.so.0.0.debug		comp-compat-shlib	 compat,pic,kerberos,debug,arch64
 ./usr/libdata/debug/usr/lib/o32/libwrap.so.1.0.debug	comp-net-debug	debug,compat,arch64

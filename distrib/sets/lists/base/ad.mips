@@ -324,7 +324,7 @@
 ./usr/lib/64/libusbhid.so.1			base-compat-shlib	compat,pic,arch64
 ./usr/lib/64/libusbhid.so.1.0			base-compat-shlib	compat,pic,arch64
 ./usr/lib/64/libutil.so.7			base-compat-shlib	compat,pic,arch64
-./usr/lib/64/libutil.so.7.21			base-compat-shlib	compat,pic,arch64
+./usr/lib/64/libutil.so.7.23			base-compat-shlib	compat,pic,arch64
 ./usr/lib/64/libwind.so.0			base-compat-shlib	compat,pic,kerberos,arch64
 ./usr/lib/64/libwind.so.0.0			base-compat-shlib	compat,pic,kerberos,arch64
 ./usr/lib/64/libwrap.so.1			base-compat-shlib	compat,pic,arch64
@@ -666,7 +666,7 @@
 ./usr/lib/o32/libusbhid.so.1			base-compat-shlib	compat,pic,arch64
 ./usr/lib/o32/libusbhid.so.1.0			base-compat-shlib	compat,pic,arch64
 ./usr/lib/o32/libutil.so.7			base-compat-shlib	compat,pic,arch64
-./usr/lib/o32/libutil.so.7.21			base-compat-shlib	compat,pic,arch64
+./usr/lib/o32/libutil.so.7.23			base-compat-shlib	compat,pic,arch64
 ./usr/lib/o32/libwind.so.0			base-compat-shlib	compat,pic,kerberos,arch64
 ./usr/lib/o32/libwind.so.0.0			base-compat-shlib	compat,pic,kerberos,arch64
 ./usr/lib/o32/libwrap.so.1			base-compat-shlib	compat,pic,arch64

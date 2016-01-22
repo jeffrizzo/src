@@ -315,7 +315,7 @@
 ./usr/lib/sparc/libusbhid.so.1			base-compat-shlib	compat,pic
 ./usr/lib/sparc/libusbhid.so.1.0		base-compat-shlib	compat,pic
 ./usr/lib/sparc/libutil.so.7			base-compat-shlib	compat,pic
-./usr/lib/sparc/libutil.so.7.21			base-compat-shlib	compat,pic
+./usr/lib/sparc/libutil.so.7.23			base-compat-shlib	compat,pic
 ./usr/lib/sparc/libwind.so.0			base-compat-shlib	compat,pic,kerberos
 ./usr/lib/sparc/libwind.so.0.0			base-compat-shlib	compat,pic,kerberos
 ./usr/lib/sparc/libwrap.so.1			base-compat-shlib	compat,pic

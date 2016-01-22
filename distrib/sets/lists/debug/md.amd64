@@ -329,7 +329,7 @@
 ./usr/libdata/debug/usr/lib/i386/libtspi.so.3.0.debug	comp-compat-shlib	compat,pic,debug,tpm
 ./usr/libdata/debug/usr/lib/i386/libukfs.so.1.0.debug	comp-compat-shlib	compat,pic,debug,rump
 ./usr/libdata/debug/usr/lib/i386/libusbhid.so.1.0.debug	comp-compat-shlib	compat,pic,debug
-./usr/libdata/debug/usr/lib/i386/libutil.so.7.21.debug	comp-compat-shlib	compat,pic,debug
+./usr/libdata/debug/usr/lib/i386/libutil.so.7.23.debug	comp-compat-shlib	compat,pic,debug
 ./usr/libdata/debug/usr/lib/i386/libwind.so.0.0.debug	comp-compat-shlib	compat,pic,kerberos,debug
 ./usr/libdata/debug/usr/lib/i386/libwrap.so.1.0.debug	comp-compat-shlib	compat,pic,debug
 ./usr/libdata/debug/usr/lib/i386/libz.so.1.0.debug	comp-compat-shlib	compat,pic,debug

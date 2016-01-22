@@ -337,7 +337,7 @@
 ./usr/libdata/debug/usr/lib/oabi/libukfs.so.1.0.debug	comp-sys-debug	debug,compat,rump
 ./usr/libdata/debug/usr/lib/oabi/libumem.so.0.0.debug	comp-zfs-debug	zfs,dynamicroot,debug,compat
 ./usr/libdata/debug/usr/lib/oabi/libusbhid.so.1.0.debug	comp-sys-debug	debug,compat
-./usr/libdata/debug/usr/lib/oabi/libutil.so.7.21.debug	comp-sys-debug	debug,compat
+./usr/libdata/debug/usr/lib/oabi/libutil.so.7.23.debug	comp-sys-debug	debug,compat
 ./usr/libdata/debug/usr/lib/oabi/libuutil.so.0.0.debug	comp-zfs-debug	zfs,dynamicroot,debug,compat
 ./usr/libdata/debug/usr/lib/oabi/libwind.so.0.0.debug	comp-compat-shlib	 compat,pic,kerberos,debug
 ./usr/libdata/debug/usr/lib/oabi/libwrap.so.1.0.debug	comp-net-debug	debug,compat
