@@ -1201,7 +1201,6 @@
 ./usr/libdata/debug/usr/sbin/rtquery.debug	comp-netutil-debug	debug
 ./usr/libdata/debug/usr/sbin/rtsold.debug	comp-netutil-debug	inet6,debug
 ./usr/libdata/debug/usr/sbin/rump.envstat.debug	comp-sysutil-debug	debug,rump
-./usr/libdata/debug/usr/sbin/rump.ndp.debug	comp-netutil-debug	inet6,debug,rump
 ./usr/libdata/debug/usr/sbin/rump.powerd.debug	comp-sysutil-debug	debug,rump
 ./usr/libdata/debug/usr/sbin/rump.traceroute.debug	comp-netutil-debug	debug,rump
 ./usr/libdata/debug/usr/sbin/rump_cd9660.debug	comp-puffs-debug	debug,rump
