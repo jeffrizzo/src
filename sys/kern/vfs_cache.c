@@ -60,8 +60,11 @@
 #include <sys/cdefs.h>
 __KERNEL_RCSID(0, "$NetBSD: vfs_cache.c,v 1.108 2015/10/02 16:54:15 christos Exp $");
 
+#ifdef _KERNEL_OPT
 #include "opt_ddb.h"
 #include "opt_revcache.h"
+#include "opt_dtrace.h"
+#endif
 
 #include <sys/param.h>
 #include <sys/systm.h>
