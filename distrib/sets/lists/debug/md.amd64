@@ -197,6 +197,7 @@
 ./usr/libdata/debug/usr/lib/i386/libatf-c++.so.0.0.debug	comp-compat-shlib	compat,pic,atf,debug,obsolete
 ./usr/libdata/debug/usr/lib/i386/libatf-c++.so.1.0.debug	comp-compat-shlib	compat,pic,atf,debug
 ./usr/libdata/debug/usr/lib/i386/libatf-c.so.0.0.debug	comp-compat-shlib	compat,pic,atf,debug
+./usr/libdata/debug/usr/lib/i386/libavl.so.0.0.debug	comp-compat-shlib	compat,debug,zfs
 ./usr/libdata/debug/usr/lib/i386/libbfd.so.13.0.debug	comp-compat-shlib	compat,pic,binutils,debug
 ./usr/libdata/debug/usr/lib/i386/libbind9.so.8.2.debug	comp-compat-shlib	compat,pic,debug
 ./usr/libdata/debug/usr/lib/i386/libblacklist.so.0.0.debug	comp-compat-shlib	compat,pic,debug
@@ -210,12 +211,14 @@
 ./usr/libdata/debug/usr/lib/i386/libcrypt.so.1.0.debug	comp-compat-shlib	compat,pic,debug
 ./usr/libdata/debug/usr/lib/i386/libcrypto.so.8.4.debug	comp-compat-shlib	crypto,compat,pic,debug
 ./usr/libdata/debug/usr/lib/i386/libcrypto_rc5.so.7.0.debug	comp-compat-shlib	crypto,crypto_rc5,compat,pic,debug
+./usr/libdata/debug/usr/lib/i386/libctf.so.3.0.debug	comp-compat-shlib	compat,debug,dtrace
 ./usr/libdata/debug/usr/lib/i386/libcurses.so.7.0.debug	comp-compat-shlib	compat,pic,debug
 ./usr/libdata/debug/usr/lib/i386/libdes.so.8.2.debug	comp-compat-shlib	compat,pic,debug
 ./usr/libdata/debug/usr/lib/i386/libdevmapper.so.1.0.debug	comp-compat-shlib	compat,pic,lvm,debug
 ./usr/libdata/debug/usr/lib/i386/libdm.so.0.0.debug	comp-compat-shlib	compat,pic,debug
 ./usr/libdata/debug/usr/lib/i386/libdns.so.8.2.debug	comp-compat-shlib	compat,pic,debug
 ./usr/libdata/debug/usr/lib/i386/libdns_sd.so.0.0.debug	comp-compat-shlib	compat,pic,debug
+./usr/libdata/debug/usr/lib/i386/libdtrace.so.3.0.debug	comp-compat-shlib	compat,debug,dtrace
 ./usr/libdata/debug/usr/lib/i386/libdwarf.so.1.0.debug	comp-compat-shlib	compat,pic,debug
 ./usr/libdata/debug/usr/lib/i386/libedit.so.3.1.debug	comp-compat-shlib	compat,pic,debug
 ./usr/libdata/debug/usr/lib/i386/libelf.so.1.0.debug	comp-compat-shlib	compat,pic,debug
@@ -280,6 +283,7 @@
 ./usr/libdata/debug/usr/lib/i386/libnetpgp.so.3.0.debug	comp-compat-shlib	compat,pic,debug
 ./usr/libdata/debug/usr/lib/i386/libnetpgpverify.so.4.0.debug	comp-compat-shlib	compat,pic,debug
 ./usr/libdata/debug/usr/lib/i386/libnpf.so.0.0.debug	comp-compat-shlib	compat,pic,npf,debug
+./usr/libdata/debug/usr/lib/i386/libnvpair.so.0.0.debug	comp-compat-shlib	compat,debug,zfs
 ./usr/libdata/debug/usr/lib/i386/libobjc.so.3.0.debug	comp-compat-shlib	gcc=4,compat,pic,debug
 ./usr/libdata/debug/usr/lib/i386/libobjc.so.3.0.debug	comp-compat-shlib	gcc=45,compat,pic,debug
 ./usr/libdata/debug/usr/lib/i386/libobjc.so.4.0.debug	comp-compat-shlib	gcc=48,compat,pic,debug
@@ -328,8 +332,10 @@
 ./usr/libdata/debug/usr/lib/i386/libtre.so.0.8.debug	comp-compat-shlib	compat,pic,debug
 ./usr/libdata/debug/usr/lib/i386/libtspi.so.3.0.debug	comp-compat-shlib	compat,pic,debug,tpm
 ./usr/libdata/debug/usr/lib/i386/libukfs.so.1.0.debug	comp-compat-shlib	compat,pic,debug,rump
+./usr/libdata/debug/usr/lib/i386/libumem.so.0.0.debug	comp-compat-shlib	compat,debug,zfs
 ./usr/libdata/debug/usr/lib/i386/libusbhid.so.1.0.debug	comp-compat-shlib	compat,pic,debug
 ./usr/libdata/debug/usr/lib/i386/libutil.so.7.23.debug	comp-compat-shlib	compat,pic,debug
+./usr/libdata/debug/usr/lib/i386/libuutil.so.0.0.debug	comp-compat-shlib	compat,debug,zfs
 ./usr/libdata/debug/usr/lib/i386/libwind.so.0.0.debug	comp-compat-shlib	compat,pic,kerberos,debug
 ./usr/libdata/debug/usr/lib/i386/libwrap.so.1.0.debug	comp-compat-shlib	compat,pic,debug
 ./usr/libdata/debug/usr/lib/i386/libz.so.1.0.debug	comp-compat-shlib	compat,pic,debug
