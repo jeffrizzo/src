@@ -329,6 +329,7 @@ _CCLINK=	${CXX} ${_CCLINKFLAGS}
 .endif
 
 .if defined(RUMPPRG)
+CPPFLAGS+=	-D_KERNTYPES
 PROG=			${RUMPPRG}
 . ifndef CRUNCHEDPROG
 .  if (${MKRUMP} != "no")

@@ -1,4 +1,4 @@
-#	$NetBSD: Makefile,v 1.5 2011/05/26 12:56:33 joerg Exp $
+#	$NetBSD: Makefile,v 1.7 2016/01/23 21:22:49 christos Exp $
 
 USE_FORT?=	yes	# setgid
 PROG=		pmap
@@ -9,5 +9,6 @@ LDADD=		-lkvm
 DPADD=		${LIBKVM}
 
 CWARNFLAGS.clang+=	-Wno-format-extra-args
+CPPFLAGS+=	-D_KMEMUSER
 
 .include <bsd.prog.mk>
