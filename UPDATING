@@ -19,6 +19,14 @@ See also: BUILDING, build.sh, Makefile.
 Recent changes:
 ^^^^^^^^^^^^^^^
 
+20160125:
+	Dtrace has been enabled by default on some architectures.
+	When doing an update build, make sure to clean the etc/mtree
+	object directory before starting the build - otherwise the
+	needed directories in destdir will not be created.
+	An easy way to do this is:
+	   cd src/etc/mtree && $TOOLDIR/bin/nbmake-$arch cleandir
+
 20140721:
 	The src/external/mit/lua/src directory was accidentally created
 	and then deleted in the CVS repository.  If you get errors like
