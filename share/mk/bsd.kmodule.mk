@@ -36,6 +36,11 @@ CFLAGS+=	${${ACTIVE_CC} == "gcc":? -mlongcall :}
 CFLAGS+=	-fno-pic
 .endif
 
+.if ${MKCTF:Uno} == "yes"
+CFLAGS+=	-g
+#CTFFLAGS+=	-g
+.endif
+
 .if ${MACHINE_CPU} == "sparc64"
 # force same memory model as rest of the kernel
 CFLAGS+=	${${ACTIVE_CC} == "gcc":? -mcmodel=medlow :}
