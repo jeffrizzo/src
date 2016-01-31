@@ -48,7 +48,7 @@ CLEANFILES+=strings
 	@rm -f x.cc
 .endif
 
-.if defined(MKPIE) && (${MKPIE} != "no")
+.if defined(MKPIE) && (${MKPIE} != "no") && !defined(NOPIE)
 CFLAGS+=	${PIE_CFLAGS}
 AFLAGS+=	${PIE_AFLAGS}
 LDFLAGS+=	${PIE_LDFLAGS}

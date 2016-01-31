@@ -490,6 +490,13 @@ TOOL_ZIC=		zic
 
 .endif	# USETOOLS != yes						# }
 
+# Standalone code should not be compiled with PIE or CTF
+# Should create a better test
+.if defined(BINDIR) && ${BINDIR} == "/usr/mdec"
+NOPIE=			# defined
+NOCTF=			# defined
+.endif
+
 # Fallback to ensure that all variables are defined to something
 TOOL_CC.false=		false
 TOOL_CPP.false=		false
