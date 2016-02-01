@@ -1,4 +1,4 @@
-/*	$NetBSD: vfs_bio.c,v 1.250 2014/05/25 16:31:51 pooka Exp $	*/
+/*	$NetBSD: vfs_bio.c,v 1.259 2016/02/01 05:05:43 riz Exp $	*/
 
 /*-
  * Copyright (c) 2007, 2008, 2009 The NetBSD Foundation, Inc.
@@ -123,9 +123,12 @@
  */
 
 #include <sys/cdefs.h>
-__KERNEL_RCSID(0, "$NetBSD: vfs_bio.c,v 1.250 2014/05/25 16:31:51 pooka Exp $");
+__KERNEL_RCSID(0, "$NetBSD: vfs_bio.c,v 1.259 2016/02/01 05:05:43 riz Exp $");
 
+#ifdef _KERNEL_OPT
 #include "opt_bufcache.h"
+#include "opt_dtrace.h"
+#endif
 
 #include <sys/param.h>
 #include <sys/systm.h>
@@ -143,6 +146,7 @@ __KERNEL_RCSID(0, "$NetBSD: vfs_bio.c,v 1.250 2014/05/25 16:31:51 pooka Exp $");
 #include <sys/cpu.h>
 #include <sys/wapbl.h>
 #include <sys/bitops.h>
+#include <sys/sdt.h>
 
 #include <uvm/uvm.h>	/* extern struct uvm uvm */
 
@@ -1476,6 +1480,11 @@ buf_drain(int n)
 	return size;
 }
 
+SDT_PROVIDER_DEFINE(io);
+
+SDT_PROBE_DEFINE1(io, kernel, , wait__start, "struct buf *"/*bp*/);
+SDT_PROBE_DEFINE1(io, kernel, , wait__done, "struct buf *"/*bp*/);
+
 /*
  * Wait for operations on the buffer to complete.
  * When they do, extract and return the I/O's error value.
@@ -1487,10 +1496,14 @@ biowait(buf_t *bp)
 	KASSERT(ISSET(bp->b_cflags, BC_BUSY));
 	KASSERT(bp->b_refcnt > 0);
 
+	SDT_PROBE1(io, kernel, , wait__start, bp);
+
 	mutex_enter(bp->b_objlock);
 	while (!ISSET(bp->b_oflags, BO_DONE | BO_DELWRI))
 		cv_wait(&bp->b_done, bp->b_objlock);
 	mutex_exit(bp->b_objlock);
+
+	SDT_PROBE1(io, kernel, , wait__done, bp);
 
 	return bp->b_error;
 }
@@ -1530,10 +1543,14 @@ biodone(buf_t *bp)
 	}
 }
 
+SDT_PROBE_DEFINE1(io, kernel, , done, "struct buf *"/*bp*/);
+
 static void
 biodone2(buf_t *bp)
 {
 	void (*callout)(buf_t *);
+
+	SDT_PROBE1(io, kernel, ,done, bp);
 
 	mutex_enter(bp->b_objlock);
 	/* Note that the transfer is done. */
