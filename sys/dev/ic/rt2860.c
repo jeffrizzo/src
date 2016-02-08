@@ -1860,17 +1860,28 @@ rt2860_ioctl(struct ifnet *ifp, u_long cmd, void *data)
 	aprint_normal_dev(sc->sc_dev, "in %s\n", __FUNCTION__);
 	s = splnet();
 
+	aprint_normal_dev(sc->sc_dev, "past debugger1 in %s\n", __FUNCTION__);
+	Debugger();
+	
 	switch (cmd) {
 	case SIOCSIFFLAGS:
 		if ((error = ifioctl_common(ifp, cmd, data)) != 0)
 			break;
+		aprint_normal_dev(sc->sc_dev, "entering switch in %s", __FUNCTION__);
+		Debugger();
 		switch (ifp->if_flags & (IFF_UP|IFF_RUNNING)) {
 		case IFF_UP|IFF_RUNNING:
+		  aprint_normal_dev(sc->sc_dev, "no flags in %s", __FUNCTION__);
+		Debugger();
 			break;
 		case IFF_UP:
+		  aprint_normal_dev(sc->sc_dev, "about to _init in %s", __FUNCTION__);
+		Debugger();
 			rt2860_init(ifp);
 			break;
 		case IFF_RUNNING:
+		  aprint_normal_dev(sc->sc_dev, "about to _stop in %s", __FUNCTION__);
+		Debugger();
 			rt2860_stop(ifp, 1);
 			break;
 		case 0:

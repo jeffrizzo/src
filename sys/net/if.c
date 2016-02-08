@@ -1554,7 +1554,7 @@ if_up(struct ifnet *ifp)
 	struct ifaddr *ifa;
 #endif
 	struct domain *dp;
-
+printf("in if_up %s\n", ifp->if_xname);
 	ifp->if_flags |= IFF_UP;
 	nanotime(&ifp->if_lastchange);
 #ifdef notyet
@@ -1689,6 +1689,7 @@ ifioctl_common(struct ifnet *ifp, u_long cmd, void *data)
 	struct ifcapreq *ifcr;
 	struct ifdatareq *ifdr;
 
+printf("in ifioctl_common() for %s\n", ifp->if_xname);
 	switch (cmd) {
 	case SIOCSIFCAP:
 		ifcr = data;
@@ -1741,14 +1742,17 @@ ifioctl_common(struct ifnet *ifp, u_long cmd, void *data)
 			return ENETRESET;
 		return 0;
 	case SIOCSIFFLAGS:
+printf("in ifioctl_common() SIOCSIFFLAGS\n");
 		ifr = data;
 		if (ifp->if_flags & IFF_UP && (ifr->ifr_flags & IFF_UP) == 0) {
 			s = splnet();
+printf("in ifioctl_common() calling if_down\n");
 			if_down(ifp);
 			splx(s);
 		}
 		if (ifr->ifr_flags & IFF_UP && (ifp->if_flags & IFF_UP) == 0) {
 			s = splnet();
+printf("in ifioctl_common() calling if_up\n");
 			if_up(ifp);
 			splx(s);
 		}
